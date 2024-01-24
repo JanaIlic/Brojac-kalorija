@@ -1,0 +1,153 @@
+@import "../app.component.css";
+
+form {
+    outline-style: auto;
+    outline-width: 10px;
+    outline-color: black;
+    left: 550px;
+    height: 280px;
+    top: 110px;
+    width: 500px;
+    position: absolute;
+}
+
+
+button {
+    width: 80px;
+    left: 270px;
+    top: 180px;
+    padding: 0px;
+    font-size:medium;
+    font-variant: small-caps;
+    font-weight: bold;
+}
+
+
+input.obicanKorisnik {
+    top: 180px;
+    left: 110px;
+    position: relative;
+}
+
+input.adminAA {
+    top: 170px;
+    left: 110px;
+    position: relative;
+}
+
+input.adminAN {
+    top: 160px;
+    left: 110px;
+    position: relative;
+}
+
+input.ime {
+    left: 170px;
+    top: 90px;
+}
+
+input.sifra {
+    left: 170px;
+    top: 140px;
+}
+
+label {
+    left: 80px;
+}
+
+label.lbKorisnik {
+    top: 190px;
+    left: 13px;
+    height: 20px;
+    width: 190px;
+    text-align: right;
+}
+
+label.lbadminAA {
+    top: 215px;
+    left: 80px;
+    height: 20px;
+    width: 190px;
+    text-align: right;
+}
+
+label.lbadminAN {
+    top: 240px;
+    left: 90px;
+    height: 20px;
+    width: 180px;
+    text-align: right;
+}
+
+label.lbKao{
+    top: 190px;
+}
+
+label.lbIme {
+    top: 92px;
+    width: 70px;
+    line-height: 13px;
+}
+
+label.lbSifra {
+    top: 145px;
+    width: 100px;
+}
+
+.btPrikaz {
+    top: 140px;
+    left: 365px;
+    width: 115px;
+    height: 28px;
+    padding-left: 0px;
+    position: absolute;
+    border-radius: 5px;
+    border-width: 3px;
+    border-style: dotted;
+    border-left-style: none;
+    background-color: transparent;
+    border-color: #ebdae0;
+}
+
+
+p.poruka {
+    top: 210px;
+    left: 140px;
+    width: 480px;
+    position: absolute;
+    text-align: center;
+    font-size: xx-large;
+}
+
+
+
+body {
+    background-color: #fffb9f;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 720px;
+    width: 1530px;
+}
+
+img.kravica {
+    left: 1050px;
+    top: 160px;
+    width: auto;
+    height: 450px;
+}
+
+img.kuvar {
+    top: 80px;
+    left: 40px;
+    width: 200px;
+    height: auto;
+}
+
+img.biciklista {
+    top: 450px;
+    left: 60px;
+    width: 300px;
+    height: auto;
+}

@@ -1,0 +1,155 @@
+@import "../app.component.css";
+
+
+button#btPoz {
+    left: 335px;
+    top: 240px;
+}
+
+
+ul {
+    height: fit-content;
+    list-style-type: none;
+    background-color: #fffb9f;
+    z-index: 1;
+    border-color: black;
+    border-radius: 7px;
+    border-width: 1px;
+    border-style: solid;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+
+div#dRazgovor {
+    top: 310px;
+    width: 500px;
+    left: 0px;
+    height: fit-content;
+    background-color: #fffb9f;
+    border-color: black;
+    border-width: 0px;
+    border-style: solid;
+    border-radius: 0px;
+    border-top-left-radius: 8px;
+}
+
+div#dRazgovor>ul.ulRazgovor {
+    position: relative;
+    width: 490px;
+    left: 0px;
+    top: 10px;
+    height: fit-content;
+    max-height: 320px;
+    overflow: hidden;
+    overflow-y: scroll;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    border-width: 1px;
+    background-color: #fffb9f;
+    border-top-left-radius: 0px;
+}
+
+ul.ulRazgovor::-webkit-scrollbar{
+    display: none;
+}
+
+ul.ulRazgovor>li {
+    position: relative;
+    height: fit-content;
+    width: 430px;
+    left: -20px;
+    top: 0px;
+    padding-left: 10px;
+    border-bottom-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-style: none;
+    border-width: 1px;
+    border-color: black;
+    background-color: whitesmoke
+}
+
+div#dRazgovor>form.porukaForm {
+    position: relative;   
+    width: 490px;
+    height: 70px;
+    left: 0px;
+    top: -20px;
+    bottom: 5px;
+    z-index: 2;
+    border-top-left-radius: 0px;
+}
+
+
+
+form.porukaForm>button#btPosaljiPoruku {
+    text-align: left;
+    top: 10px;
+    left: 375px;
+    width: 30px;
+}
+
+form.porukaForm>button#btPrepraviPoruku {
+    text-align: left;
+    top: 10px;
+    left: 410px;
+    width: 30px;
+}
+
+form.porukaForm>button#btObrisiPoruku {
+    text-align: left;
+    top: 10px;
+    left: 445px;
+    width: 30px;
+
+}
+
+form.porukaForm>input {
+    top: 15px;
+    left: 15px;
+    width: 350px;
+}
+
+div#dRazgovor>button.btX {
+    position: fixed;
+    left: 473px;
+    top: 332px;
+    z-index: 2;
+}
+
+div#dRazgovor>form.porukaForm>button#btObrisiRazgovor {
+    width: 100px;
+    top: 45px;
+    height: 20px;
+    left: 375px;
+    font-size: x-small
+}
+
+button#btSanduce {
+    top: 30px;
+    left: 1150px;
+    width: 50px;
+    font-weight: bolder;
+}
+
+
+ul.ulSanduce {
+    top: 60px;
+    left: 1050px;
+    width: 150px;
+    max-height: 400px;
+    height: fit-content;
+    list-style-type: none;
+    padding: 10px;
+}
+
+ul.ulSanduce>li {
+    left: 0px;
+    position: relative;
+    background-color: whitesmoke;
+    font-weight: bold;
+}

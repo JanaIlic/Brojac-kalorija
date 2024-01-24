@@ -1,0 +1,107 @@
+<head></head>
+
+<body>
+    <span>
+        <div>
+            <h6> {{ korisnik.ime }} </h6>
+
+            <img [src]="putanja" alt="">
+
+            <button type="button" class="btIme" id="btIme" (click)="clickPromeniIme()"
+                title="Promeni svoje korisničko ime."> ime </button>
+            <form [formGroup]="imeForm" class="imeForm" [hidden]="!imeforma" (ngSubmit)="promeniIme()">
+                <label class="lbIme"> ime: </label>
+                <input class="tIme" type="text" title="Unesi novo korisničko ime." (input)="unetoIme()"
+                    (change)="unetoIme()" formControlName="ime" />
+
+                <button type="submit" id="submitIme" title="Sačuvaj ime."> 💾 </button>
+                <button type="button" class="btX" (click)="clickX()"
+                    title="Zatvori prikaz korisničkom imena.">✖</button>
+            </form>
+
+            <button type="button" class="btSifra" id="btSifra" (click)="clickPromeniSifru()"
+                title="Promeni šifru.">šifra🗝</button>
+            <form [formGroup]="sifraForm" class="sifraForm" [hidden]="!sifraforma" (ngSubmit)="promeniSifru()">
+                <label class="lbSifra"> 🔑šifra: </label>
+                <input class="tSifra" [type]="prikazi ? 'text' : 'password'" formControlName="sifra"
+                    title="Unesi svoju novu šifru od najmanje 8 karaktera." (input)="proveriSifru()"
+                    (change)="proveriSifru()" />
+                <label class="lbPotvrda"> potvrda: </label>
+                <input class="tPotvrda" [type]="prikazi ? 'text' : 'password'" formControlName="potvrda"
+                    title="Potvrdi unetu šifru." (input)="proveriSifru()" (change)="proveriSifru()" />
+
+                <input type="button" class="btPrikaz" title="Pritisni ovde da bi se prikazala šifra." value={{natpis}}
+                    (click)="prikaziSifru()">
+                <button type="submit" id="submitSifra" title="Sačuvaj šifru."> 💾 </button>
+                <button type="button" class="btX" (click)="clickX()" title="Zatvori podešavanje šifre.">✖</button>
+            </form>
+
+            <button type="button" class="btDr" id="btDr" (click)="clickPromeniDr()" title="Promeni datum rođenja.">datum
+                rođenja🎉</button>
+            <form [formGroup]="drForm" class="drForm" [hidden]="!drforma" (ngSubmit)="promeniDR()">
+                <label> 🎂 datum rođenja: </label>
+                <select class="sGodina" formControlName="godina" title="Označi godinu rođenja."
+                    (change)="clickGodina()">
+                    <option value="0" [defaultSelected]="0" disabled> </option>
+                    <option *ngFor="let g of godine()" value="{{g}}"> {{g}} </option>
+                </select>
+
+                <select class="sMesec" formControlName="mesec" title="Označi mesec." (change)="clickMesec()">
+                    <option value="0" [defaultSelected]="0" disabled> </option>
+                    <option value="1" id="1"> januar </option>
+                    <option value="2" id="2"> februar </option>
+                    <option value="3" id="3"> mart </option>
+                    <option value="4" id="4"> april </option>
+                    <option value="5" id="5"> maj </option>
+                    <option value="6" id="6"> jun </option>
+                    <option value="7" id="7"> jul </option>
+                    <option value="8" id="8"> avgust </option>
+                    <option value="9" id="9"> septembar </option>
+                    <option value="10" id="10"> oktobar </option>
+                    <option value="11" id="11"> novembar </option>
+                    <option value="12" id="12"> decembar </option>
+                </select>
+
+                <select class="sDan" formControlName="dan" title="Označi dan. Prvo je neophodno označiti mesec."
+                    (change)="clickDan()">
+                    <option value="0" [defaultSelected]="0" disabled> </option>
+                    <option *ngFor="let d of dani" value="{{d}}"> {{d}} </option>
+                </select>
+
+                <button type="submit" id="submitDr" title="Sačuvaj uneti datum rođenja."> 💾 </button>
+                <button type="button" class="btX" title="Zatvori prikaz datuma rođenja." (click)="clickX()">✖</button>
+
+
+            </form>
+
+            <button type="button" class="btSlika" id="btSlika" title="Promeni sliku." (click)="clickPromeniSliku()">
+                slika </button>
+            <form [formGroup]="slikaForm" class="slikaForm" [hidden]="!slikaforma" (ngSubmit)="promeniSliku()">
+                <label>Ubaci sliku.📷</label>
+                <input type="file" formControlName="slika" title="Pronađi i ubaci novu sliku." id="slika" value="file"
+                    (input)="unetaSlika()">
+                <button type="submit" id="submitSlika" title="Sačuvaj unetu sliku."> 💾 </button>
+                <button type="button" class="btX" (click)="clickX()" title="Zatvori podešavanje slike.">✖</button>
+            </form>
+
+
+            <button type="button" class="btObrisi" id="btObrisi" title="Obriši svoj nalog."
+                (click)="clickObrisiNalog()">obriši nalog🚷</button>
+            <form [formGroup]="brisanjeForm" class="brisanjeForm" [hidden]="!brisanjeforma">
+                <label> Da li je sigurno da želiš da obrišeš nalog? </label>
+                <button type="submit" id="brisi" (click)="obrisiNalog()" title="Potvrdi brisanje."> DA </button>
+                <button type="button" class="btX" (click)="clickX()" title="Odustani od brisanja naloga.">✖</button>
+            </form>
+
+        </div>
+    </span>
+    <span>
+        <button class="odjava" type="button" (click)="odjaviSe()"> odjavi se </button>
+    </span>
+
+    <p class="odgovor" [hidden]="poruka==''">
+        {{poruka}}
+        <button class="btX" (click)="poruka=''">✖</button>
+    </p>
+
+</body>

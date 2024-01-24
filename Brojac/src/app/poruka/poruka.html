@@ -1,0 +1,52 @@
+
+    <button type="button" id="btPoz" [hidden]="korisnikID == 0 || prikazrazgovora"
+        title="Pošalji poruku ovom korisniku." (click)="ucitajRazgovor()">✉️</button>
+
+    <button type="button" id="btSanduce" title="Pogledaj poruke u sandučetu." (click)="clickSanduce()">📬</button>
+
+    <ul class="ulSanduce" [hidden]="!sanduce">
+        <li *ngIf="sagovornici.length == 0">
+            Trenutno nema poruka.
+        </li>
+        <li *ngFor="let s of sagovornici" title="Označi korisnika, ako želiš da vidiš razgovor s njim."
+            (click)="izaberiRazgovor(s.id); sagovornik = s.ime">
+            {{s.ime}}
+        </li>
+    </ul>
+
+
+
+
+    <div id="dRazgovor" [hidden]="!prikazrazgovora" >
+        <button id="btX" class="btX" (click)="razgovorX()" title="Zatvori razgovor.">✖</button>
+
+        <ul class="ulRazgovor" id="ulRazgovor"  >
+            <li *ngIf="razgovor.length == 0" class="italicNatpis" > Nemaš poruke sa ovim korisnikom. </li>
+    
+            <li *ngFor="let r of razgovor; index as i"  id="{{'li'+ i}}" class="liPoruka"  (click)="oznaciPoruku(r.id, i)"
+                title="Označi svoju poruku ako želiš da je prepraviš ili obrišeš iz ovog razgovora.">
+                <h6 *ngIf="autori[i]"> ja </h6>
+                <h6 *ngIf="!autori[i]"> {{sagovornik}}</h6>
+                <br>
+                {{r.tekst}}
+            </li>   
+        </ul>
+
+        <form [formGroup]="porukaForm" class="porukaForm" id="porukaForm"  >
+            <input type="text" formControlName="unos" (input)="unosPoruke()" (emptied)="unosPoruke()"
+                title="Upiši tekst poruke.">
+            <button type="button" id="btPosaljiPoruku" title="Pošalji unetu poruku." (click)="posalji()">✉️</button>
+            <button type="button" id="btPrepraviPoruku" title="Prepravi odabranu poruku."
+                (click)="prepravi()">📝</button>
+            <button type="button" id="btObrisiPoruku" title="Ukloni odabranu poruku iz razgovora."
+                (click)="obrisiPoruku()">🗑</button>
+            <button type="button" id="btObrisiRazgovor" title="Ukloni ceo ovaj razgovor." [hidden]="razgovor==[]"
+                (click)="obrisiRazgovor()">obriši ceo razgovor</button>
+        </form>
+    </div>
+
+    <p class="odgovor" [hidden]="greska==''">
+        {{greska}}
+        <button class="btX" (click)="greska=''">✖</button>
+    </p>
+

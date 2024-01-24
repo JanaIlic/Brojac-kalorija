@@ -1,0 +1,159 @@
+<head></head>
+
+<body>
+    <button type="button" class="btP" id="btP" (click)="clickPretraga()"
+        title="Otvori stanja da među njima potražiš ono koje te zanima."> traži stanje 🔎</button>
+
+    <form [formGroup]="traziStanjeForm" class="traziStanjeForm" [hidden]="!pretraga">
+        <div>
+            <span>
+                <label class="lbDatum"> datum: </label>
+            </span>
+            <span>
+                <select class="sDatum" formControlName="datum" title="Odaberi datum da bi se prikazalo tadašnje stanje."
+                    (change)="nadjiStanje()">
+                    <option value="0" disabled [defaultSelected]="0"> </option>
+                    <option *ngFor="let s of stanja" value={{s.id}}>
+                        {{ funkcije.prikaziVremeDatum(s.datum) }} </option>
+                </select>
+            </span>
+        </div>
+        <button type="button" class="btX" title="Zatvori pretragu."
+            (click)="clickPretragaX(); aktuelnoStanje()">✖</button>
+    </form>
+
+    <p class="odgovor" [hidden]="poruka==''">
+        {{poruka}}
+        <button class="btX" (click)="poruka=''">✖</button>
+    </p>
+
+    <button type="button" class="btN" id="btN" title="Upiši novo stanje." (click)="clickNovo()">novo stanje📌</button>
+    <button type="button" class="btPV" id="btPV" title="Upiši visinu u centimetrima." (click)="clickPV()"> visina
+    </button>
+    <button type="button" class="btPT" id="btPT" title="Upiši kilažu u kilogramima." (click)="clickPT()"> težina
+    </button>
+    <button type="button" class="btPC" id="btPC" title="Upiši ciljnu kilažu." (click)="clickPC()">cilj </button>
+    <button type="button" class="btA" id="btA" title="Prikaži aktuelno stanje." (click)="clickA()"> aktuelno stanje
+    </button>
+
+
+    <form [formGroup]="ntForm" class="ntForm" [hidden]="!aktivnost" (ngSubmit)="sacuvajNivo()">
+        <h3>Dnevne aktivnosti</h3>
+
+        <label class="lbTrajanje"> Opiši svoj prosečan dan. Nabroj svakodnevne aktivnosti i za svaku od njih obeleži
+            koliko vremena dnevno potrošiš na nju. Aktivnosti koje nemaš svakodnevno, ubaci kasnije u treninzima.
+        </label>
+        <label class="lbSati"> sati </label>
+        <label class="lbMinuti"> minuta </label>
+
+
+        <div>
+            <select class="sAktivnost" formControlName="aktivnost"
+                title="Biraj jednu po jednu aktivnost svog prosečnog dana.">
+                <option value="0" selected disabled> </option>
+                <option *ngFor="let a of aktivnosti" value="{{a.id}}"> {{a.naziv }} </option>
+            </select>
+
+            <button type="button" id="btAktivnost" title="Dodaj izabranu aktivnost u svoje dnevne aktivnosti."
+                (click)="upisiAktivnost()">upiši aktivnost</button>
+
+        </div>
+
+        <select class="sSati" formControlName="sati" (change)="upisiSate()"
+            title="trajanje izabrane aktivnosti u satima">
+            <option value="0" selected> </option>
+            <option *ngFor="let s of sati" value="{{s}}"> {{s}} </option>
+        </select>
+        <select class="sMinuti" formControlName="minuti" (change)="upisiMinute()"
+            title="trajanje izabrane aktivnosti u minutima">
+            <option value="0" selected> </option>
+            <option *ngFor="let m of minuti" value="{{m}}"> {{m}} </option>
+        </select>
+
+        <h5>Upisane aktivnosti:</h5>
+
+        <ul>
+            <li *ngIf="spisak.length==0" style="padding-left: 70px;" > *Nema upisanih aktivnosti.*</li>
+            <li *ngFor="let s of spisak"> {{s}} </li>
+        </ul>
+
+        <button type="submit" id="btSacuvaj" title="Sačuvaj nabrojane dnevne aktivnosti.">sačuvaj opis dana 💾</button>
+        <button type="button" class="btX" (click)="clickNtX()" title="Zatvori izbor dnevnih aktivnosti.">✖</button>
+    </form>
+
+
+    <form [formGroup]="tezinaForm" class="tezinaForm" [hidden]="!tezinaforma" (ngSubmit)="promeniTezinu()">
+        <label class="lbTezina"> težina: </label>
+        <input type="text" class="tTezina" (input)="unetaTezina()" (change)="unetaTezina()" formControlName="tezina"
+            title="Unesi svoju kilažu u kilogramima.">
+        <label class="lbKg">kg</label>
+        <button type="submit" id="btSacuvajT" title="Sačuvaj unetu težinu."> 💾 </button>
+        <button type="button" class="btX" [hidden]="novo" title="Zatvori unos težine."
+            (click)="clickTezinaX()">✖</button>
+    </form>
+
+    <form [formGroup]="visinaForm" class="visinaForm" (ngSubmit)="promeniVisinu()" [hidden]="!visinaforma">
+
+        <label class="lbVisina"> visina: </label>
+        <input type="text" class="tVisina" (input)="unetaVisina()" (change)="unetaVisina()" formControlName="visina"
+            title="Unesi svoju visinu u centimetrima.">
+        <label class="lbCm"> cm </label>
+        <button type="submit" id="btSacuvajV" [hidden]="!visinaforma" title="Sačuvaj unetu visinu."> 💾 </button>
+        <button type="button" class="btX" title="Zatvori unos visine." (click)="clickVisinaX()">✖</button>
+    </form>
+
+
+    <form [formGroup]="ciljForm" class="ciljForm" [hidden]="!ciljforma">
+        <div>
+            <label class="lbKilaza"> 🎯ciljna kilaža: </label>
+            <input type="text" class="tCilj" formControlName="cilj" title="Unesi ciljnu kilažu u kilogramima."
+                (input)="unetCilj()">
+            <label class="lbKgCilj">kg</label>
+            <button type="button" id="btCilj" class="btCilj" title="Sačuvaj unetu ciljnu kilažu." (click)="zadajCilj()">
+                💾</button>
+        </div>
+        <div>
+            <label class="lbPeriod"> 📆period: </label>
+            <select class="sPeriod" formControlName="period"
+                title="Izaberi period. Za koje vreme želiš da postigneš ovaj cilj?" (change)="parsirajPeriod()">
+                <option value="0" selected> </option>
+                <option *ngFor="let p of periodi" value="{{ p }}"> {{p}}</option>
+            </select>
+            <button type="button" id="btPeriod" class="btPeriod" title="Sačuvaj izabrani period."
+                (click)="zadajVreme()">💾</button>
+        </div>
+
+        <button type="button" class="btX" [hidden]="novo" title="Zatvori izbor cilja." (click)="clickCiljX()">✖</button>
+    </form>
+
+
+
+    <button type="button" class="btB" id="btB" (click)="clickObrisiStanje()" title="Obriši aktuelno stanje.">obriši
+        stanje🗑</button>
+    <form [formGroup]="brisanjeForm" class="brisanjeForm" [hidden]="!brisanjeforma" (ngSubmit)="obrisiStanje()">
+        <label> Da li je sigurno da želiš da obrišeš stanje? </label>
+        <button type="submit" title="Potvrdi brisanje stanja."> DA </button>
+        <button type="button" class="btX" title="Odustani od brisanja stanja." (click)="clickBrisanjeX()">✖</button>
+    </form>
+
+
+    <h3 [hidden]="!aktStanje">Aktuelno stanje</h3>
+    <button type="button" class="btX" id="aktX" [hidden]="!aktStanje" title="Zatvori prikaz aktuelnog stanja."
+    (click)="zatvoriA()">✖</button>
+    <textarea [hidden]="!aktStanje" cols="1" rows="12">
+    stanje {{ funkcije.prikaziVremeDatum(stanje.datum) }}
+    ・visina: {{ stanje.visina }} cm
+    ・težina: {{ stanje.tezina }} kg
+    ・BMR: {{ stanje.bmr }} kcal
+    ・BMI: {{ bmi }}
+    ・ciljna kilaža: {{ stanje.ciljnaKilaza }} kg
+    ・ukupne dnevne energetske potrebe: {{ stanje.energetskePotrebe }} kcal
+    ・preporučen dnevni unos
+        — proteina: {{ stanje.protein }} g
+        — ugljenih hidrata: {{ stanje.ugljeniHidrati }} g
+        — masti: {{ stanje.mast }} g
+    ・ciljni dnevni unos: {{ stanje.ciljniUnos }} kcal
+        </textarea>
+
+
+</body>

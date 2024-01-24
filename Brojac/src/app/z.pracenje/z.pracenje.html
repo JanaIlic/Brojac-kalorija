@@ -1,0 +1,39 @@
+
+<button type="button" class="btZp" id="btZp" (click)="clickZP()" title="Otvori zahteve za praćenje."> zahtevi za praćenje 💛</button>
+<button type="button" [hidden]="!otvoriposlate && !otvoriprimljene" class="btPoslati" id="btPoslati"
+    (click)="clickPoslateZP()" title="Otvori poslate zahteve za praćenje.">poslati</button>
+<button type="button" [hidden]="!otvoriposlate && !otvoriprimljene" class="btPrimljeni" id="btPrimljeni"
+    (click)="clickPrimljeneZP()" title="Otvori primljene zahteve za praćenje.">primljeni</button>
+
+<form [formGroup]="zahteviForm" class="poslatZahtevForm">
+    <select class="sZp" multiple formControlName="zPoslat" [hidden]="!otvoriposlate" (change)="clickPoslatZP()"
+        title="Označi poslat zahtev ako želiš da vidiš detalje o njemu.">
+        <option disabled *ngIf="poslatiZahtevi.length==0">Nema poslatih</option>
+        <option disabled *ngIf="primljeniZahtevi.length==0">zahteva.</option>
+        <option *ngFor="let z of poslatiZahtevi; index as i" value={{z.id}}> {{primaoci[i]}}</option>
+    </select>
+    <select class="sZp" multiple formControlName="zPrimljen" [hidden]="!otvoriprimljene" (change)="clickPrimljenZP()"
+        title="Označi primljen zahtev ako želiš da vidiš detalje o njemu.">
+        <option disabled *ngIf="primljeniZahtevi.length==0">Nema primljenih</option>
+        <option disabled *ngIf="primljeniZahtevi.length==0">zahteva.</option>
+        <option *ngFor="let z of primljeniZahtevi; index as i" value={{z.id}}> {{podnosioci[i]}}</option>
+    </select>
+    <button type="button" class="btX" [hidden]="!otvoriposlate && !otvoriprimljene" (click)="clickZX()" title="Zatvori zahteve za praćenje.">✖</button>
+</form>
+
+
+<textarea class="detalji" [hidden]="!otvoridetalje" readonly cols="1" rows="7"> {{ detalji }}  </textarea>
+<button type="button" class="btPovuci" id="btPovuciZP" [hidden]="!otvoridetalje || zPrimljen" (click)="povuci()"
+    title="Povuci zahtev."> 🗑 </button>
+<button type="button" class="btPovuci" id="btPrihvati" [hidden]="!otvoridetalje || !zPrimljen" (click)="prihvati()"
+    title="Prihvati zahtev."> 👍 </button>
+<button type="button" class="btOdbij" id="btOdbij" [hidden]="!otvoridetalje || !zPrimljen" (click)="odbij()"
+    title="Odbij zahtev."> 👎 </button>
+<button type="button" class="btX" [hidden]="!otvoridetalje" (click)="zahtevX()">✖</button>
+
+
+
+<p class="odgovor" [hidden]="greska==''">
+    {{greska}}
+    <button class="btX" (click)="greska=''">✖</button>
+</p>

@@ -1,0 +1,37 @@
+<button type="button" class="btZn" (click)="clickZN()" title="Pogledaj poslate zahteve namirnica.">zahtevi
+    namirnica🍉</button>
+
+<button type="button" class="btZa" (click)="clickZA()" title="Pogledaj poslate zahteve aktivnosti.">zahtevi
+    aktivnosti🏓</button>
+
+
+
+<form [formGroup]="poslatZahtevForm" class="poslatZahtevForm">
+    <select class="sZn" multiple formControlName="zN" [hidden]="!otvorizn" (change)="clickZahtevNamirnice()"
+        title="Označi zahtev namirnice čije detalje želiš da pogledaš.">
+        <option disabled *ngIf="zahtevi.length==0"> Nema poslatih</option>
+        <option disabled *ngIf="zahtevi.length==0"> zahteva.</option>
+        <option *ngFor="let z of zahtevi" value={{z.id}}> {{ z.nazivNamirnice }} </option>
+    </select>
+
+    <select class="sZa" multiple formControlName="zA" [hidden]="!otvoriza" (change)="clickZahtevAktivnosti()"
+        title="Označi zahtev aktivnosti čije detalje želiš da pogledaš.">
+        <option disabled *ngIf="zahtevi.length==0"> Nema poslatih</option>
+        <option disabled *ngIf="zahtevi.length==0"> zahteva.</option>
+        <option *ngFor="let z of zahtevi" value={{z.id}}> {{ z.nazivAktivnosti }} </option>
+    </select>
+</form>
+
+
+<textarea class="detalji" [hidden]="!prikazidetalje" readonly cols="1" rows="7"> {{ detalji }}  </textarea>
+<button type="button" class="btPovuci" id="btPovuci" [hidden]="!prikazidetalje" (click)="povuciZahtev()"
+    title="Povuci zahtev."> 🗑 </button>
+<button type="button" class="btX" [hidden]="!prikazidetalje" (click)="zahtevX()"
+    title="Zatvori prikaz detalja zahteva.">✖</button>
+
+<z-pracenje></z-pracenje>
+
+<p class="odgovor" [hidden]="greska==''">
+    {{greska}}
+    <button class="btX" (click)="greska=''">✖</button>
+</p>

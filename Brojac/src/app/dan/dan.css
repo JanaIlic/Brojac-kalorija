@@ -1,0 +1,286 @@
+@import "../app.component.css";
+
+button.btDani {
+    width: 110px;
+    left: 210px;
+    top: 30px;
+}
+
+
+
+textarea.textDan {
+    top: 170px;
+    left: 460px;
+    width: 540px;
+    padding-inline: 10px;
+    padding-block: 0px;
+    padding-top: 0px;
+}
+
+textarea.textDan::first-line {
+    font-size: small;
+    font-weight: bold;
+    height: fit-content;
+}
+
+
+form.obrokForm>h3 {
+    left: 1280px;
+    top: 80px;
+    width: 180px;
+}
+
+form.treningForm>h3 {
+    left: 1280px;
+    width: 180px;
+    top: 375px;
+}
+
+h3.hDan {
+    top: 120px;
+    left: 460px;
+    width: 540px;
+    font-size: 40px;
+}
+
+form.obrokForm>select {
+    top: 115px;
+    left: 1280px;
+    width: 180px;
+}
+
+form.obrokForm > button#sDoleO{
+    left: 1435px;
+    top: 315px;
+}
+
+form.obrokForm > button#sGoreO{
+    left: 1435px;
+    top: 80px;
+}
+
+form.obrokForm>button#oDirektno {
+    top: 325px;
+    left: 1280px;
+    width: 70px;
+}
+
+form.obrokForm>button#oDetalji {
+    top: 325px;
+    left: 1360px;
+    width: 70px;
+}
+
+form.treningForm>select {
+    top: 410px;
+    left: 1280px;
+    width: 180px;
+}
+
+form.treningForm > button#sDoleT{
+    left: 1435px;
+    top: 610px;
+}
+
+form.treningForm > button#sGoreT{
+    left: 1435px;
+    top: 375px;
+}
+
+form.treningForm>button#tDirektno {
+    top: 620px;
+    left: 1280px;
+    width: 70px;
+}
+
+form.treningForm>button#tDetalji {
+    top: 620px;
+    left: 1360px;
+    width: 70px;
+}
+
+option {
+    position: relative;
+}
+
+
+
+form>label {
+    width: 160px;
+    top: 210px;
+    left: 910px;
+}
+
+form.danForm>select.sDan {
+    top: 60px;
+    left: 210px;
+    width: 110px;
+}
+
+form.danForm>label.lbUputstvoO {
+    top: 365px;
+    left: 460px;
+    width: 540px;
+    font-size: small;
+    z-index: 0;
+}
+
+form.danForm>label.lbUputstvoT {
+    top: 520px;
+    left: 460px;
+    width: 540px;
+    font-size: small;
+    z-index: 0;
+}
+
+form.danForm>select.sUbaceniTreninzi {
+    top: 545px;
+    left: 460px;
+    width: 540px;
+    z-index: 0;
+}
+
+button#utIzbaci{
+    left: 970px;
+    height: 23px;
+    z-index: 1;
+    padding: 0px;
+    font-size: small;
+}
+
+button#utPrikazi{
+    left: 910px;
+    height: 23px;
+    z-index: 1;
+    font-size: small;
+    font-weight: bold;
+}
+
+form.danForm>select.sUbaceniObroci {
+    top: 390px;
+    left: 460px;
+    width: 540px;
+    z-index: 0;
+}
+
+button#uoIzbaci{
+    left: 970px;
+    height: 23px;
+    z-index: 1;
+    padding: 0px;
+    font-size: small;
+}
+
+button#uoPrikazi{
+    left: 910px;
+    height: 23px;
+    z-index: 1;
+    font-weight: bold;
+    font-size: small;
+}
+
+form.danForm>input {
+    top: 630px;
+    left: 640px;
+    width: 15px;
+    height: 15px;
+    z-index: 0;
+}
+
+form.danForm>button.btReset {
+    top: 620px;
+    left: 940px;
+    width: 60px;
+    z-index: 0;
+}
+
+form.danForm>button.btIzvestaj {
+    top: 620px;
+    left: 840px;
+    width: 90px;
+}
+
+textarea.tIzvestaj {
+    left: 700px;
+    width: 301px;
+    top: 370px;
+    z-index: 1;
+    background-color: white;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+}
+
+button#btIzvestajX {
+    top: 371px;
+    left: 974px;
+    z-index: 2;
+}
+
+form.danForm>label.lbPrijava {
+    top: 627px;
+    left: 460px;
+    width: 250px;
+    font-size: small;
+    z-index: 0;
+}
+
+
+div.dPrikaz {
+    top: 130px;
+    left: 550px;
+    width: 350px;
+    height: 280px;
+    background-color: #fffb9f;
+    border-radius: 8px;
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+    z-index: 1;
+}
+
+
+
+div.dPrikaz>textarea.textPrikaz {
+    top: 50px;
+    left: 10px;
+    width: 330px;
+    padding: 10px;
+    padding-bottom: 0px;
+}
+
+div.dPrikaz>p{
+    top:5px;
+    left: 220px;
+    padding: 0px;
+    font-size: small;
+    font-weight: bold;
+    font-variant-caps: small-caps;
+}
+
+div.dPrikaz>h3 {
+    top: 5px;
+    position: relative;
+    align-self: center;
+    padding: 0px;
+}
+
+div.dPrikaz>button.btUbaci {
+    position: relative;
+    top: 190px;
+    left: 120px;
+    width: 80px;
+}
+
+div.dPrikaz>button.btIzbaci {
+    position: relative;
+    top: 190px;
+    left: 115px;
+    width: 90px;
+}
+
+div.dPrikaz>button.btX {
+    top: 1px;
+    left: 321px;
+    z-index: 2;
+}

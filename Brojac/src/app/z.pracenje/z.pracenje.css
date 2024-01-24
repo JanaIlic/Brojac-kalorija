@@ -1,0 +1,80 @@
+@import "../app.component.css";
+
+
+
+button.btZp {
+    top: 30px;
+    left: 950px;
+    width: 180px;
+}
+
+button.btPrimljeni {
+    top: 60px;
+    left: 950px;
+    width: 75px;
+}
+
+button.btPrimljeni:disabled{
+    background-color: white;
+    border-color:  #ebdae0;
+    border-width: 3px;
+}
+
+button.btPoslati {
+    top: 60px;
+    left: 1035px;
+    width: 60px;
+}
+
+button.btPoslati:disabled{
+    background-color: white;
+    border-color:  #ebdae0;
+    border-width: 3px;
+}
+
+form.poslatZahtevForm>button.btX {
+    top: 60px;
+    left: 1105px;
+}
+
+option {
+    position: relative;
+}
+
+
+
+form.poslatZahtevForm>select.sZp {
+    left: 950px;
+    top: 85px;
+    width: 180px;
+}
+
+textarea.detalji {
+    top: 60px;
+    left: 615px;
+    width: 530px;
+    font-weight: bolder;
+    color: black;
+    text-align: justify;
+    background-color: white;
+    z-index: 1;
+}
+
+
+button.btPovuci {
+    top: 90px;
+    left: 1155px;
+}
+
+
+button.btOdbij {
+    top: 130px;
+    left: 1155px;
+
+}
+
+button.btX {
+    top: 60px;
+    left: 1155px;
+    z-index: 2;
+}

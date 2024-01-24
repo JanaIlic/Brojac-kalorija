@@ -1,0 +1,40 @@
+@import "../app.component.css";
+
+
+button{
+    z-index: 2;
+}
+
+button.btJelo {
+    top: 30px;
+    left: 330px;
+    width: 70px;
+}
+
+button.btObrok {
+    top: 30px;
+    left: 410px;
+    width: 80px;
+}
+
+
+button.btTrening {
+    top: 30px;
+    left: 500px;
+    width: 90px;
+}
+
+
+
+button.btDrustvo {
+    top: 30px;
+    left: 1140px;
+    width: 100px;
+}
+
+
+
+button.btNazad {
+    top: 20px;
+}
+

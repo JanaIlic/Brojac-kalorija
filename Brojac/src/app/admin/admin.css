@@ -1,0 +1,116 @@
+@import "../app.component.css";
+
+span>button.odjava {
+    left: 1380px;
+    top: 30px;
+    width: 80px;
+}
+
+label.lbAdmin {
+    left: 30px;
+    top: 60px;
+    width: 190px;
+    height: 30px;
+}
+
+
+button.btPodaci {
+    top: 120px;
+    left: 30px;
+    width: 120px;
+}
+
+form.adminForm {
+    left: 50px;
+    top: 200px;
+    height: 210px;
+    width: 350px;
+    border-color: black;
+    border-width: 1px;
+    border-radius: 7px;
+    border-style: solid;
+}
+
+form.adminForm>* {
+    position: inherit;
+}
+
+form.adminForm>button[type="submit"] {
+    top: 350px;
+    left: 150px;
+}
+
+form.adminForm>p.objasnjenje {
+    width: 300px;
+    left: 20px;
+    top: 170px;
+    text-align: justify;
+    font-size: small;
+}
+
+
+h6 {
+    font-size: larger;
+    left: 240px;
+    top: 60px;
+    position: absolute;
+}
+
+
+form.adminForm>label.lbIme {
+    top: 15px;
+    left: 20px;
+    width: 130px;
+}
+
+form.adminForm>input.tIme {
+    top: 10px;
+    left: 150px;
+    width: 170px;
+}
+
+form.adminForm>label.lbSifra {
+    top: 55px;
+    left: 20px;
+    width: 120px;
+}
+
+form.adminForm>input.tSifra {
+    top: 50px;
+    left: 150px;
+    width: 170px;
+}
+
+form.adminForm>label.lbPotvrda {
+    top: 95px;
+    left: 20px;
+    width: 120px;
+}
+
+form.adminForm>input.tPotvrda {
+    top: 90px;
+    left: 150px;
+    width: 170px;
+}
+
+
+form.adminForm>input.btPrikaz {
+    top: 130px;
+    left: 170px;
+    padding-left: 0px;
+    position: relative;
+    border-radius: 8px;
+    border-width: 2px;
+    border-style: dotted;
+    background-color: transparent;
+}
+
+form.adminForm>button.btX {
+    left: 322px;
+    top: 1px;
+}
+
+form.adminForm>button[type="submit"] {
+    top: 130px;
+    left: 60px;
+}

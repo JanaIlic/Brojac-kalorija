@@ -1,0 +1,152 @@
+<head></head>
+
+<body>
+    <label class="lbAdmin"> Administrator namirnica: </label>
+    <admin></admin>
+
+    <button type="button" id="btNazad" (click)="clickNazad()">🢀</button>
+
+    <span>
+        <span>
+            <button class="btNovi" (click)="clickNoviZahtevi()" title="Pogledaj nove zahteve."> novi zahtevi🙏 </button>
+            <button class="btStari" (click)="clickStariZahtevi()" title="Pogledaj stare, već obrađene zahteve.">obrađeni
+                zahtevi✔</button>
+
+            <select class="zahtevi" multiple size="brZahteva" [hidden]="!otvoriStare && !otvoriNove"
+                title="Označi zahtev za prikaz detalja.">
+                <option disabled *ngIf="zahtevi.length == 0">Nema primljenih zahteva.</option>
+                <option *ngFor="let z of zahtevi" value="z.id" (click)="clickZahtev(z)"> {{ z.nazivNamirnice }}
+                </option>
+            </select>
+        </span>
+
+        <p class="detalji" [hidden]="zahtev.id == 0 || otvoriNove || otvoriStare"> {{ detalji }} </p>
+        <button type="button" class="btPrihvati" id="btPrihvati" [hidden]="zahtev.id == 0" (click)="prihvatiZahtev()"
+            title="Prihvati zahtev."> 👍 </button>
+        <button type="button" class="btIspuni" id="btIspuni" [hidden]="zahtev.id == 0" (click)="ispuniZahtev()"
+            title="Ispuni zahtev.">✔</button>
+        <button type="button" class="btOdbij" id="btOdbij" (click)="odbijZahtev()" [hidden]="zahtev.id == 0"
+            title="Odbij zahtev."> 👎 </button>
+        <button type="button" class="btX" [hidden]="zahtev.id == 0" (click)="zatvoriZahtev()"
+            title="Zatvori detalje o zahtevu.">✖</button>
+    </span>
+
+
+    <span>
+
+
+        <form [formGroup]="namirnicaForm" class="namirnicaForm" [hidden]="!(dodavanje || promena)"
+            (ngSubmit)="namirnicaSacuvaj()">
+            <label class="lbNaziv"> naziv: </label>
+            <input type="text" class="tNaziv" formControlName="naziv" title="Upiši naziv namirnice.">
+
+            <label class="lbEv"> energetska vrednost: </label>
+            <input type="text" class="tEv" formControlName="ev"
+                title="Upiši energetsku vrednost koju sadrži 100 g namirnice.">
+            <label class="lbKcal"> kcal </label>
+
+            <label class="lbProtein"> protein: </label>
+            <input type="text" class="tProtein" formControlName="protein"
+                title="Upiši koliko grama proteina se nalazi u 100 g ove namirnice.">
+            <label class="lbPg"> g 🥚</label>
+
+            <label class="lbUh">🍩 ugljeni hidrati: </label>
+            <input type="text" class="tUh" formControlName="uh"
+                title="Upiši koliko grama ugljenih hidrata se nalazi u 100 g ove namirnice.">
+            <label class="lbUhG"> g </label>
+
+            <label class="lbMast"> mast:</label>
+            <input type="text" class="tMast" formControlName="mast"
+                title="Upiši koliko grama masti se nalazi u 100 g ove namirnice.">
+            <label class="lbMastG"> g 🥓</label>
+
+            <label class="lbVrsta"> vrsta: </label>
+            <select class="sVrsta" formControlName="vrsta" title="Odaberi vrstu namirnice.">
+                <option value="9" disabled selected> </option>
+                <option value="0"> 🍇 voće 🍏🍒🍌 </option>
+                <option value="1"> 🌶🥬povrće 🥦</option>
+                <option value="2"> 🍖 meso 🥩🍗 </option>
+                <option value="3">🥛mlečni proizvod🧀 </option>
+                <option value="4"> 🌽žitarice🌾</option>
+                <option value="5"> 🥐🥨 testo 🍞</option>
+                <option value="6"> mešano jelo🍲🌮 </option>
+                <option value="7"> 🍰🍪poslastica🍭 </option>
+                <option value="8"> 🦑 ostalo 🍄🍻 </option>
+            </select>
+
+
+            <label class="lbNacin">🔥 priprema: </label>
+            <select class="sTip" formControlName="tip" title="Odaberi način pripreme namirnice.">
+                <option value="6" disabled selected> </option>
+                <option value="0"> 🍓sveža🥗🍐 </option>
+                <option value="1">🥄🍲kuvana🍜 </option>
+                <option value="2"> dinstana 🧅🥕</option>
+                <option value="3"> 🥯🍟pržena</option>
+                <option value="4"> pečena 🥩🍕</option>
+                <option value="5"> 🍯🍨🥫ostalo </option>
+            </select>
+
+
+            <select class="sDm" formControlName="dm"
+                title="Označi koliko masti/ulja je dodato u toku pripreme namirnice.">
+                <option value="4" disabled selected> </option>
+                <option value="0">🚫 bez masti/ulja </option>
+                <option value="1"> sa malo masti/ulja 🍳💦</option>
+                <option value="2"> 🍵 u dubokoj masti/ulju </option>
+            </select>
+
+
+            <select class="sDb" formControlName="db" title="Označi koliko brašna je dodato u toku pripreme namirnice.">
+                <option value="4" disabled selected> </option>
+                <option value="0"> bez brašna 🚫</option>
+                <option value="1" title="samo brašno">🍚 uvaljano u brašno </option>
+                <option value="2" title="jaje, brašno, prezla"> pohovano🍚🥣 </option>
+            </select>
+
+            <label class="lbPm"> promena mase obradom: </label>
+            <input type="text" class="tPm" formControlName="pm"
+                title="Upiši koeficijent koji pokazuje koliko se masa namirnice promeni u toku pripreme.">
+
+            <label class="lbOpis"> opis: </label>
+            <input type="text" class="tOpis" formControlName="opis" title="Opiši namirnicu.">
+
+            <button type="submit" title="Sačuvaj novu namirnicu."> 💾 </button>
+            <button type="button" class="btX" (click)="sve = !sve; ucitajNamirnice()"
+                title="Zatvori unos namirnice.">✖</button>
+        </form>
+
+
+
+        <span>
+            <h2 class="hNamirnice"> NAMIRNICE 🛒 </h2>
+            <label class="lbPretraga"> Traži: </label>
+
+            <form [formGroup]="traziNamirnicuForm" class="traziForm" (ngSubmit)="pretraziNamirnice()">
+                <input type="text" formControlName="unos" title="Unesi naziv namirnice koju tražiš."
+                    (keydown)="popunjeno()" (emptied)="popunjeno()">
+                <button type="submit" id="btTrazi" title="Pokreni pretragu.">🔎</button>
+            </form>
+
+            <p class="odgovor" [hidden]="poruka==''">
+                {{poruka}}
+                <button class="btX" (click)="poruka=''">✖</button>
+            </p>
+        </span>
+
+        <select name="listbox" id="listbox" multiple size="20" class="sNamirnice"
+            title="Označi namirnicu čije podatke želiš da vidiš.">
+            <option *ngFor="let n of namirnice" value={{n.id}} (click)="clickNamirnica(n)"> {{n.naziv}} </option>
+        </select>
+
+        <button type="button" class="btDodaj" (click)="dodavanje = true; this.namirnicaForm.reset()"
+            title="Dodaj novu namirnicu.">➕</button>
+        <button type="button" class="btObrisi" [disabled]="!promena" title="Obriši odabranu namirnicu."
+            (click)="obrisiNamirnicu()">🗑</button>
+        <button type="button" class="btDodate" (click)="ucitajNamirnice()"
+            title="Prikaži sve namirnice, ili samo one koje si dodao."> {{natpis}} </button>
+
+    </span>
+
+    <!--img src="../assets/slike/namirnice.jpg" alt=""-->
+
+</body>

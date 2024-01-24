@@ -1,0 +1,148 @@
+
+
+    <form [formGroup]="objavaForm" class="objavaForm">
+        <label> Šta želiš da podeliš sa pratiocima? </label>
+
+        <button type="button" class="btObjavi" id="btObjavi" [hidden]="mojaobjava"
+            title="Objavi tekst i/ili sliku." (click)="upis = true">💬</button>
+
+        <button type="button" class="btObjaviJelo" id="btObjaviJelo" [hidden]="mojaobjava"
+            title="Objavi svoje jelo. Otvori izbor pritiskom na dugme 'jela'." (click)="ucitajJela()">🥐</button>
+
+        <button type="button" class="btObjaviObrok" id="btObjaviObrok" [hidden]="mojaobjava"
+            title="Objavi obrok. Otvori izbor pritiskom na dugme 'obroci'." (click)="ucitajObroke()">🍲</button>
+
+        <button type="button" class="btObjaviTrening" id="btObjaviTrening" [hidden]="mojaobjava"
+            title="Objavi trening. Otvori izbor pritiskom na dugme 'treninzi'." (click)="ucitajTreninge()">🎾</button>
+
+
+           <div class="dUpis" [hidden]="!upis">
+            <button class="btX" title="zatvori" (click)="upis = false; objavaForm.reset()">✖</button>
+            <label>Upiši: </label>
+            <textarea id="txtUnos" cols="1" rows="5" (emptied)="unos()" (input)="unos()" title="Unesi tekst."></textarea>
+            <input type="file" formControlName="slika" title="Ubaci i sliku, ako želiš."  (input)="unos()"  (emptied)="unos()">
+             <button type="button"  id="btSacuvaj"  (click)="objavi()" title="Sačuvaj uneto."> 💾 </button>
+           </div> 
+
+    </form>
+
+    <label [hidden]="prikazobjave || autor.id > 0"  class="lbSve"> Prikaži samo moje objave. </label>
+        <input type="checkbox" (change)="samoMoje()" id="checkboxSve" [hidden]="prikazobjave"
+            title="Izaberi da li želiš da vidiš objave svih korisnika koje pratiš ili samo svoje." >
+
+    <ul class="zaObjavu" [hidden]="jela.length==0">
+        <button class="btX" title="zatvori" (click)="jela=[]">✖</button>
+        <li *ngFor="let j of jela" (click)="objaviJelo(j.id)">
+            {{j.naziv}}
+        </li>
+    </ul>
+
+    <ul class="zaObjavu" [hidden]="obroci.length==0">
+        <button class="btX" title="zatvori" (click)="obroci=[]">✖</button>
+        <li *ngFor="let o of obroci" (click)="objaviObrok(o.id)">
+            {{o.naziv}}
+        </li>
+    </ul>
+
+    <ul class="zaObjavu" [hidden]="treninzi.length==0">
+        <button class="btX" title="zatvori" (click)="treninzi=[]">✖</button>
+        <li *ngFor="let t of treninzi" (click)="objaviTrening(t.id)">
+            {{t.naziv}}
+        </li>
+    </ul>
+
+    <div class="dUcitana" [hidden]="!prikazobjave">
+        <ul class="ulUcitana">
+            <li class="liDatum" >  {{funkcije.prikaziVremeDatum(objava.vreme)}}   </li>
+
+            <li class="liIme"> {{autor.ime}}</li>
+
+            <li  *ngIf="objava.tekst.length>0" class="liPre" >   {{objava.tekst}}   </li>
+
+            <li class="liImg">  <img [src]="slika" alt=""> </li>
+
+            <li class="liDugmad"> 
+                <button type="button" id="btObojeno"  title={{titlZaOcenu}} (click)="clickOcene()">★★★★★</button>
+                <button type="button" id="btCrno" title={{titlZaOcenu}} (click)="clickOcene()">★★★★★</button>
+                <button id="btKomentari" title="komentari" (click)="clickKomentari()"
+                    title="Pogledaj komentare.">{{brKomentara}}🗨</button>
+                <button id="btPromeni" type="button" (click)="clickPrepravi()" [hidden]="!mojaobjava" title="Prepravi objavu.">📝</button>
+                <button id="btUkloni" type="button" (click)="obrisiObjavu()" [hidden]="!mojaobjava" title="Obriši objavu.">🗑</button>
+            </li>          
+        </ul>
+
+       
+        <button id="btX" class="btX" (click)="objavaX()" title="Zatvori prikaz objave.">✖</button>
+
+        <div class="dKomentari" [hidden]="!prikazkomentara">
+            
+            <button id="btX" class="btX" (click)="komentariX()" title="Zatvori prikaz komentara.">✖</button>
+
+            <ul class="ulKomentari" >
+                <h6>komentari</h6>
+                <li *ngIf="komentari.length == 0" title="Niko još uvek nije komentarisao, ili su komentari obrisani.">
+                    Trenutno nema komentara na ovu objavu.
+                </li>
+                <li [hidden]="komentari.length == 0"  class="liKomentar" *ngFor="let k of komentari; index as i" id="{{'li'+ i}}"
+                (click)="ucitajKomentar(k.id, i)"  >
+                    <h6>{{ autoriKomentara[i].ime }} </h6>
+                    <p> {{funkcije.prikaziVremeDatum(k.vreme) }} </p>
+                    <br> {{k.tekst}}
+                </li>
+            </ul>
+
+            <form [formGroup]="komentarForm" class="komentarForm">
+                <input type="text" formControlName="unos" (input)="unosKomentara()" (emptied)="unosKomentara()"
+                    title="Unesi tekst komentara.">
+                <button type="button" id="btKomentarisi" (click)="ostaviKomentar()" title="Ostavi komentar." >💬</button>
+                <button type="button" id="btIzmeni" title="Sačuvaj novi tekst."
+                    (click)="prepraviKomentar()"> ✎ </button>
+                <button type="button" id="btObrisi" (click)="obrisiKomentar()"> 🗑 </button>
+            </form>
+        </div>
+
+
+    </div>
+
+    <h2 class="hObjave">Objave</h2>
+
+    <ul [hidden]="prikazobjave" class="ulObjave" id="ulObjave" (wheel)="pomeri()" title="Označi objavu da vidiš ocenu i komentare." >      
+        <li class="liIf" *ngIf="objave.length==0"> Trenutno nema objava. </li>
+        <li *ngFor="let o of objave;  index as i;" id={{o.id}} (click)="ucitajObjavu(o.id)" 
+            title={{o.tekst}}>
+            <h6 *ngIf="!mojaobjava && !pracen"> · {{autori[i].ime }} </h6>
+            <br> <pre title={{o.tekst}} > {{o.tekst}} </pre> <br>
+            <img src={{slicica(o)}} alt="">
+        </li>
+    </ul>
+
+    <button  [hidden]="objave.length<4" class="btStrelica" id="sGore"  (click)="pomeriGore()" >▲</button>
+    <button  [hidden]="objave.length<4" class="btStrelica" id="sDole" (click)="pomeriDole()" >▼</button>
+
+    <form [formGroup]="ocenaForm" class="ocenaForm" [hidden]="!ocenjivanje">
+        <select formControlName="vrednost" class="sOcene" size="6" title="Oceni ovu objavu." (change)="upisiOcenu()">
+            <option value="1"> ★ </option>
+            <option value="2"> ★ </option>
+            <option value="3"> ★ </option>
+            <option value="4"> ★ </option>
+            <option value="5"> ★ </option>
+            <option id="o6" value="6" title="Povuci datu ocenu.">povuci</option>
+        </select>
+    </form>
+
+
+    <ul class="uOcene" [hidden]="!prikazocena" title="ocene pratilaca">
+        <li *ngIf="ocene.length == 0"> Još uvek nema ocena na ovu objavu.</li>
+        <li *ngFor="let o of ocene; index as i">
+            <p> {{ autoriOcena[i].ime }}</p> {{o.vrednost}}
+        </li>
+
+        <button class="btX" (click)="prikazocena=false" title="Zatvori prikaz ocena.">✖</button>
+    </ul>
+
+
+    <p class="odgovor" [hidden]="poruka==''">
+        {{poruka}}
+        <button class="btX" (click)="poruka=''">✖</button>
+    </p>
+

@@ -1,0 +1,76 @@
+<z-pracenje></z-pracenje>
+
+
+
+    <p class="odgovor" [hidden]="greska==''">
+        {{greska}}
+        <button class="btX" (click)="greska=''">✖</button>
+    </p>
+
+
+    <form [formGroup]="praceniForm" class="praceniForm">
+        <h3>Ljudi koje pratiš</h3>
+        <select formControlName="oznacen" multiple size="9" (change)="oznaci()"
+            title="Korisnici koje pratiš. Označi korisnika, ako želiš da vidiš detalje o njemu, objave, ili mu pošalješ poruku.">
+            <option disabled *ngIf="praceni.length==0"> Trenutno ne pratiš nikoga. </option>
+            <option *ngFor="let p of praceni" value={{p.id}}> {{p.ime}} </option>
+        </select>
+    </form>
+
+    <form [formGroup]="pratiociForm" class="pratiociForm">
+        <h3>Tvoji pratioci</h3>
+        <select formControlName="oznacen" multiple size="9" (change)="oznaciPratioca()"
+            title="Označi pratioca, ako želiš da vidiš detalje o njemu, objave, pošalješ poruku, ili zahtev za praćenje.">
+            <option disabled *ngIf="pratioci.length==0"> Trenutno nemaš pratilaca. </option>
+            <option *ngFor="let p of pratioci" value={{p.id}}> {{p.ime}} </option>
+        </select>
+    </form>
+
+    <form [formGroup]="pretragaForm" class="pretragaForm">
+        <label class="lbTrazi">Traži:</label>
+        <input type="text" formControlName="unos" (keydown)="popunjeno()" (emptied)="popunjeno()"
+            title="Unesi korisničko ime korisnika koga želiš da pronađeš.">
+        <button type="button" id="btTrazi" class="btTrazi" (click)="clickTrazi()"
+            title="Nađi korisnike sa sličnim imenima.">🔎</button>
+
+        <button type="button" id="btPretragaX" class="btX" [hidden]="rezPretrage.length==0"
+            title="Zatvori rezultat pretrage." (click)="rezultatPretrageX()">✖</button>
+        <select formControlName="pronadjen" [hidden]="rezPretrage.length==0" multiple size="rezPretrage.length"
+            (change)="prikazi()" title="Označi korisnika, ako želiš da vidiš detalje.">
+            <option *ngFor="let rp of rezPretrage" value={{rp.id}}> {{rp.ime}} </option>
+        </select>
+        <label class="lbRez" [hidden]="rezPretrage.length==0"> pronađeni: </label>
+    </form>
+
+    <form [formGroup]="slanjeForm" class="slanjeForm" [hidden]="!slanje">
+        <label class="lbPozdrav"> 👋 pozdrav uz zahtev: </label>
+        <input type="text" formControlName="pozdrav"
+            title="Nije obavezno, ali ako želiš da pošalješ dodatnu poruku korisniku uz ovaj zahtev, upiši tekst ovde.">
+        <label class="lbPrijava"> {{zvonce}}Želim da dobijem obaveštenje kada zahtev bude prihvaćen ili odbijen.
+        </label>
+        <input type="checkbox" formControlName="prijava" (change)="podesiZvonce()"
+            title="Označi ako želiš obaveštenje. U suprotnom, ostavi prazno.">
+        <button type="button" id="btPosalji" (click)="posalji()" title="Pošalji zahtev."> ⮞ </button>
+    </form>
+
+    <h3 class="hIme">{{korisnik.ime}}</h3>
+    <textarea class="textK" disabled cols="1" rows="3"  [hidden]="korisnik.id==0">
+    {{ pol}} 
+    {{ datum }}
+    </textarea>
+
+    <textarea class="italicNatpis" disabled cols="1" rows="5" [hidden]="korisnik.id!=0">
+Izaberi pratioca ili korisnika kojeg pratiš
+sa spiska desno. Sve njih, ali i još korisnika 
+možeš pronaći upisom imena u polje u 
+gornjem desnom uglu i pritiskom na "🔎".
+    </textarea>
+
+    <img class="slika" [src]="putanja" [hidden]="korisnik.id==0">
+    <button type="button" [hidden]="korisnik.id==0" id="btPrati" class="btPrati" title={{pratiTitl}}
+        (click)="clickPrati()">{{pratiNatpis}}</button>
+    <button type="button" id="btUkloni" class="btUkloni" [hidden]="korisnik.id==0 || !prati"
+        title="Ukloni ovog korisnika iz pratilaca."> 🚷</button>
+    <button type="button" id="btKorisnikX" class="btX" [hidden]="korisnik.id==0" (click)="korisnikX()"
+        title="Zatvori detalje o korisniku.">✖</button>
+

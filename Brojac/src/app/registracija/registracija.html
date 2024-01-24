@@ -1,0 +1,88 @@
+<head></head>
+
+<body>
+
+  <button type="button" class="btNazad" title="povratak na početnu stranu" (click)="clickNazad()">🢀</button>
+
+  <span>
+    <form [formGroup]="registracijaForm" (ngSubmit)="registracija()">
+      <h1> Registracija </h1>
+      <div> <label class="lbIme"> ime: </label>
+        <input type="text" formControlName="ime" title="Unesi korisničko ime." (change)="proveriUnos()">
+      </div>
+      <div> <label class="lbSifra">🔑šifra: </label>
+        <input style="top:160px" [type]="prikazi ? 'text' : 'password'" formControlName="sifra" title="Unesi šifru."
+          (change)="proveriUnos()">
+        <span>
+          <input type="button" class="bprikaz" title="Pritisni ovde da vidiš šifru." value={{natpis}}
+            (click)="prikaziSifru()">
+        </span>
+      </div>
+      <div> <label class="lbPotvrda"> potvrda šifre: </label>
+        <input style="top:215px;" [type]="prikazi ? 'text' : 'password'" class="potvrda" formControlName="potvrda"
+          (change)="proveriUnos()" title="Potvrdi unetu šifru.">
+      </div>
+      <div>
+        <span>
+          <label class="lbDatum"> 🎂 datum rođenja: </label>
+        </span>
+        <span>
+          <select class="sGodina" formControlName="godina" title="Odaberi godinu rođenja." (change)="clickGodina()">
+            <option value="0" [defaultSelected]="0" disabled> </option>
+            <option *ngFor="let g of godine()" value="{{g}}"> {{g}} </option>
+          </select>
+
+          <select class="sMesec" formControlName="mesec" title="Označi mesec." (change)="clickMesec()">
+            <option value="0" [defaultSelected]="0" disabled> </option>
+            <option value="1" id="1"> januar </option>
+            <option value="2" id="2"> februar </option>
+            <option value="3" id="3"> mart </option>
+            <option value="4" id="4"> april </option>
+            <option value="5" id="5"> maj </option>
+            <option value="6" id="6"> jun </option>
+            <option value="7" id="7"> jul </option>
+            <option value="8" id="8"> avgust </option>
+            <option value="9" id="9"> septembar </option>
+            <option value="10" id="10"> oktobar </option>
+            <option value="11" id="11"> novembar </option>
+            <option value="12" id="12"> decembar </option>
+          </select>
+
+          <select class="sDan" formControlName="dan" title="Odaberi dan. Neophodno je prvo odabrati mesec."
+            (change)="proveriUnos()">
+            <option value="0" [defaultSelected]="0"> </option>
+            <option *ngFor="let d of dani" value="{{d}}"> {{d}} </option>
+          </select>
+        </span>
+      </div>
+
+      <div> <label class="lbSlika" title="Dodaj sliku.">📷slika: </label>
+        <input type="file" formControlName="slika" (change)="proveriUnos()">
+      </div>
+
+      <div>
+        <span> <label class="lbPol"> pol: </label>
+          <select class="pol" formControlName="pol" title="Izaberi pol." (change)="proveriUnos()">
+            <option value="2" [defaultSelected]="2" disabled> </option>
+            <option value="0" id="0"> muški</option>
+            <option value="1" id="1"> ženski</option>
+          </select>
+        </span>
+
+        <span>
+          <button type="submit" id="submit" title="Pritisni za registraciju naloga.">REGISTRUJ SE</button>
+        </span>
+      </div>
+
+      <div>
+        <p> {{poruka}} </p>
+      </div>
+
+    </form>
+  </span>
+
+
+  <!--img class="kravica" src="../assets/slike/kravica.jpg" alt="">
+  <img class="kuvar" src="../assets/slike/kuvar.jpg" alt="">
+  <img class="biciklista" src="../assets/slike/biciklista.jpg" alt=""-->
+</body>

@@ -1,0 +1,153 @@
+<head></head>
+
+<body>
+
+
+    <button class="odjava" type="button" (click)="odjaviSe()"> odjavi se </button>
+
+    <button type="button" class="btNazad" title="povratak na prethodnu stranu" (click)="clickNazad()">🢀</button>
+
+
+    <label class="lbPretraga"> Traži: </label>
+    <form [formGroup]="traziObrokForm" class="traziForm" (ngSubmit)="pretraziObroke()">
+        <input type="text" formControlName="unos" title="Unesi naziv obroka koji tražiš." (keydown)="popunjeno()"
+            (emptied)="popunjeno()">
+        <button type="submit" id="btTrazi" title="Pritisni ovde za pretragu unetog obroka.">🔎</button>
+    </form>
+
+
+
+
+    <form [formGroup]="obrokForm" class="obrokForm">
+
+        <h3 class="hJela">Jelovnik 📖 </h3>
+        <select name="listbox" id="sJela" multiple size="17" class="sJela" formControlName="izabranoJelo"
+            (click)="clickJelo()" title="Označi jelo koje želiš da dodaš u svoj obrok.">
+            <option class="italicNatpis" *ngIf="jela.length == 0"> Nema unetih jela.</option>
+            <option *ngFor="let j of jela" value={{j.id}}> {{j.naziv}} </option>
+        </select>
+
+        <button id="ubaciJ" title="Ubaci ovo jelo u obrok." (click)="unosMase = true" >ubaci u obrok</button>
+        <button id="prikaziJ" title="Prikaži detalje o ovom jelu." (click)="prikazJela = true" >prikaži detalje</button>
+
+        <label class="lbPredlog">Nema jela koje tražiš?</label>
+        <button type="button" class="btNaJelo" (click)="clickNaNovoJelo()"
+             title="Pritisni za prelazak na pravljenje novog jela.">unesi novo! ⇒</button>
+
+        <div class="dJelo" [hidden]="!prikazJela && !unosMase">
+                <h3 *ngIf="jelo.id != 0">{{jelo.naziv}}</h3>
+                <h3 *ngIf="jeloO.id != 0">{{ jeloO.naziv }}</h3>
+
+                <label [hidden]="!unosMase" > ⚖ unesi masu jela: </label>
+                <input [hidden]="!unosMase" type="text" formControlName="masa"  title="Izmeri jelo i upiši njegovu masu u gramima."
+                (input)="upisMase()" (emptied)="upisMase()" (change)="upisMase()">
+                <label [hidden]="!unosMase" class="g"> g </label>
+
+                <textarea class="textJelo" cols="1" rows="7" disabled *ngIf="jelo.id != 0" >
+    ・energetska vrednost: {{ jelo.energetskaVrednost }} kcal
+    ・protein: {{ jelo.protein }} g
+    ・ugljeni hidrati: {{ jelo.ugljeniHidrati }} g
+    ・mast: {{ jelo.mast }} g
+    ・{{ jelo.recept }} 
+                </textarea>
+
+                <textarea class="textJelo" cols="1" rows="7" disabled *ngIf="jeloO.id != 0" >
+    ・energetska vrednost: {{ jeloO.energetskaVrednost }} kcal
+    ・protein: {{ jeloO.protein }} g
+    ・ugljeni hidrati: {{ jeloO.ugljeniHidrati }} g
+    ・mast: {{ jeloO.mast }} g
+    ・{{ jeloO.recept }} 
+                 </textarea>
+
+                
+                <button type="button" class="btX" (click)="jeloX()">✖</button>
+                <button type="button" id="btUbaci" (click)="clickDodajJeloObroku()" [hidden]="jelo.id == 0 || !unosMase"
+                title="Dodaj izabrano jelo u ovaj obrok."> ⇓ubaci⇓ </button>
+                <button type="button" id="btSacuvajM"  [hidden]=" jeloO.id == 0 || !unosMase"  (click)="promeniMasuJela()"
+                 title="Sačuvaj novu unetu masu.">💾</button>
+             </div>
+
+
+        <label class="lbSadrzaj"  [hidden]="obrok.id == 0" >Ovaj obrok sadrži: </label>     
+        <label class="lbUputstvo" [hidden]="obrok.id == 0"> Označi jelo ako želiš da ga ukloniš iz obroka, ili mu promeniš masu. </label>
+        <select name="listbox" id="sSadrzaj" class="sSadrzaj" multiple [hidden]="obrok.id == 0" size="jelaObroka.length" formControlName="jelo" 
+            title="Odaberi jelo čiju masu želiš da promeniš, ili da ga potpuno izbaciš iz ovog obroka." (change)="clickJO()">
+            <option *ngIf="jelaObroka.length==0" class="italicNatpis" >U ovaj obrok nije uneto nijedno jelo.</option>
+            <option   *ngFor="let jo of jelaObroka; index as i" value={{jo.id}} id={{jo.id}} >
+                {{ maseJela[i] }}&nbsp;g&nbsp;{{ jo.naziv }}&nbsp;=&nbsp;
+                {{ evJela[i] }}&nbsp;kcal
+            </option>
+        </select>
+
+        <button id="btDetaljiJ" title="Prikaži detalje o jelu." [hidden]="jeloO.id == 0" (click)="prikazJela = true" >prikaži</button>
+
+        <button class="btPm" id="btPm" type="button" [hidden]="jeloO.id == 0"
+            title="Promeni masu označenog jela, u obroku." (click)="unosMase = true">masa ⚖</button>
+
+        <button class="btIzbaci" id="btIzbaci" type="button" [hidden]="jeloO.id == 0"
+            title="Ukloni označeno jelo iz ovog obroka." (click)="izbaciJeloIzObroka()">🗑</button>
+
+        <button class="btObrisi" id="btObrisi" [hidden]="obrok.id==0" type="button" title="Obriši ceo izabrani obrok."
+            (click)="obrisiObrok()">🗑</button>
+
+        <button class="btPreimenuj" id="btPreimenuj" [hidden]="obrok.id==0" title="Promeni naziv označenog obroka."
+            (click)="clickPreimenuj()">✎</button>
+
+            <div class="dPreimenuj" [hidden]="!promena">
+                <label>Unesi novi naziv obroka: </label>
+                <input type="text" formControlName="noviNaziv" (input)="unetNoviNazivObroka()" (emptied)="unetNoviNazivObroka()" >
+                <button class="btX" type="button"  title="Odustani od promene naziva i zatvori." (click)="preimenujX()">✖</button>
+                <button id="btNn" title="Sačuvaj novi novi naziv jela." (click)="preimenujObrok()" >💾</button>
+            </div>
+
+        <button id="btObjaviObrok" [hidden]="obrok.id==0" title="Objavi označeni obrok." (click)="objaviObrok()">💬</button>
+        <button class="btX" type="button" [hidden]="obrok.id==0" title="Zatvori prikaz ovog obroka." (click)="obrokX()">✖</button>
+    </form>
+
+
+    <h3 [hidden]="obrok.id == 0" class="hObrok">{{ obrok.naziv }}</h3>
+    <textarea [hidden]="obrok.id == 0" class="textObrok" cols="1" rows="6" disabled>
+   ・energetska vrednost: {{ obrok.energetskaVrednost }} kcal
+   ・masa: {{ obrok.masa }} g
+   ・protein: {{ obrok.protein }} g
+   ・ugljeni hidrati: {{ obrok.ugljeniHidrati }} g
+   ・mast: {{ obrok.mast }} g
+       </textarea>
+
+    <textarea  [hidden]="obrok.id != 0" class="textNijeObrok" cols="1" rows="4" disabled readonly>
+    Nije izabran nijedan obrok.
+    Izaberi iz liste (levo) obrok čije detalje želiš da vidiš, ili dodaj novi obrok 
+    upisom naziva u naznačeno polje (dole levo, ispod spiska).
+    </textarea>
+
+
+    <h3 class="hObroci">🥗 Obroci 🍲</h3>
+
+    <form [formGroup]="obrociForm" class="obrociForm">
+
+        <select name="listbox" id="sObroci" multiple size={{brObroka}} class="sObroci"
+            title="Za prikaz detalja, označi jedan od svojih obroka." formControlName="izabranObrok"
+            (click)="clickObrok()">
+            <option *ngIf="obroci.length == 0" class="italicNatpis"  title="Unesi naziv novog obroka u polje ispod." > Nema unetih obroka.</option>
+            <option *ngFor="let o of obroci" value={{o.id}}> {{o.naziv}} </option>
+        </select>
+
+        <div class="dNaziv">
+            <label>Unesi naziv novog obroka:</label>
+            <input type="text"  formControlName="naziv" title="Unesi naziv obroka." 
+            (input)="unetNazivObroka()" (emptied)="unetNazivObroka()" (change)="unetNazivObroka()">
+            <button type="button" id="btObrok"  (click)="dodajNoviObrok()" title="Sačuvaj unet naziv obroka.">💾</button>
+        </div>
+
+
+    </form>
+
+    <p class="odgovor" [hidden]="poruka==''">
+        {{poruka}}
+        <button class="btX" (click)="poruka=''">✖</button>
+    </p>
+
+    <!--img class="pun" src="../assets/slike/tanjir.jpg" alt="">
+    <img class="prazan" src="../assets/slike/prazan.jpg" alt=""-->
+
+</body>

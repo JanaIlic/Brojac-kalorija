@@ -1,0 +1,202 @@
+<head></head>
+
+<body>
+
+    <button class="odjava" type="button" (click)="odjaviSe()"> odjavi se </button>
+
+    <button type="button" class="btNazad" (click)="clickNazad()" title="povratak na prethodnu stranicu">🢀</button>
+
+
+    <label class="lbPretraga"> Traži: </label>
+    <form [formGroup]="traziAktivnostForm" class="traziForm" (ngSubmit)="pretraziAktivnosti()">
+        <input type="text" formControlName="unos" title="Upiši naziv aktivnosti koju tražiš." (keydown)="popunjeno()"
+            (emptied)="popunjeno()">
+        <button type="submit" id="btTrazi" title="Pokreni pretragu.">🔎</button>
+    </form>
+
+
+
+    <form [formGroup]="zahtevForm" class="zahtevForm" [hidden]="!zahtevforma">
+        <label class="lbNaziv"> naziv aktivnosti: </label>
+        <input type="text" class="tNaziv" formControlName="naziv" (input)="unos()" (emptied)="unos()">
+
+        <label class="lbPrijava">{{zvonce}}Želim obaveštenje kada zahtev bude obrađen. </label>
+        <input type="checkbox" formControlName="prijava" (change)="podesiZvonce()"
+            title="Označi ako želiš obaveštenje. U suprotnom, ostavi prazno polje.">
+
+        <label class="lbNapomena"> 🧾napomena: </label>
+        <input type="text" class="tNapomena" formControlName="napomena"
+            title="Uz zahtev, možeš poslati i napomenu administratoru. Nije obavezno.">
+
+        <button type="button" class="btPosalji" id="btPosalji" (click)="clickPosalji()" title="Pošalji zahtev."> ⮞
+        </button>
+        <button type="button" class="btX" (click)="slanjeX()" title="Odustani od slanja zahteva.">✖</button>
+    </form>
+
+    <p class="greska" [hidden]="greska==''"> {{greska}}</p>
+
+    <p class="odgovor" [hidden]="poruka==''">
+        {{poruka}}
+        <button class="btX" (click)="poruka=''">✖</button>
+    </p>
+
+    <button id="btDa" class="btDa" [hidden]="!daNeDugmad" (click)="clickDa()"> DA </button>
+    <button id="btNe" class="btNe" [hidden]="!daNeDugmad" (click)="clickNe()"> NE </button>
+
+
+    <label class="lbPredlog">Nema aktivnosti koju tražiš?</label>
+    <button class="btPz" (click)="poslednji();  this.zahtevforma = !this.zahtevforma">pošalji zahtev!⚽</button>
+    <button class="btZahtevi" (click)="clickZahtevi()" title="Prikaži poslate zahteve aktivnosti.">
+        poslati zahtevi 🙏</button>
+
+    <form [formGroup]="poslatZahtevForm" class="poslatZahtevForm">
+        <select class="zahtevi" multiple formControlName="pZahtev" [hidden]="!otvorizahteve" (change)="clickZahtev()">
+            <option *ngIf="zahtevi.length==0" disabled >Nema poslatih </option>
+            <option *ngIf="zahtevi.length==0" disabled > zahteva.</option>
+            <option *ngFor="let z of zahtevi" value={{z.id}}> {{ z.nazivAktivnosti}} </option>
+        </select>
+    </form>
+
+
+
+    <textarea readonly class="detalji" [hidden]="!prikazidetalje" cols="1" rows="7"> {{ detalji }}  </textarea>
+    <button type="button" class="btPovuci" id="btPovuci" [hidden]=" !prikazidetalje" (click)="povuciZahtev()"> povuci
+        zahtev 🗑 </button>
+    <button type="button" class="btX" [hidden]=" !prikazidetalje" (click)="zahtevX()"
+        title="Zatvori zahteve.">✖</button>
+
+
+    <form [formGroup]="treningForm" class="treningForm">
+
+
+
+        <h3 class="hAkt">💃Aktivnosti🏃</h3>
+        <select class="sAktivnosti" id="sAktivnosti" formControlName="oznacenaAktivnost" multiple size="17" (change)="clickAktivnost()"
+            (wheel)="pomeriAktivnosti()"  title="Izaberi trening, ili dodaj novi, kako bi mogao/la da dodaš aktivnosti u taj trening.">
+            <option *ngFor="let a of aktivnosti" value={{a.id}} > {{a.naziv }} </option>
+        </select>
+
+        <button id="ubaciA" title="Ubaci ovu aktivnost u trening." (click)="ubacivanjeAktivnosti= true" >ubaci u trening</button>
+        <button id="prikaziA" title="Prikaži detalje o ovoj aktivnosti."  (click)="prikazAktivnosti = true" >prikaži</button>
+
+        <button  class="btStrelica" id="sGoreA"  (click)="pomeriAktivnostiGore()" >▲</button>
+        <button   class="btStrelica" id="sDoleA" (click)="pomeriAktivnostiDole()" >▼</button>
+
+        <div class="dOznacena"  [hidden]="!prikazAktivnosti && !ubacivanjeAktivnosti && !promenaTrajanja" >
+
+            <h3 *ngIf="aktivnost.id != 0">{{aktivnost.naziv}}</h3>
+            <h3 *ngIf="aktivnostT.id != 0">{{aktivnostT.naziv}}</h3>
+
+            <label class="lbTrajanje" > Izaberi vreme trajanja: </label>
+            <label class="lbSati" > sati </label>
+            <label class="lbMinuti"  > minuta </label>
+
+            <select class="sSati"  
+             formControlName="sati" (change)="upisiVreme()" (emptied)="upisiVreme()"
+                title="Izaberi vreme aktivnosti u satima, ako je u pitanju duži trening.">
+                <option value="0" selected> </option>
+                <option value="1"> 1 </option>
+                <option value="2"> 2 </option>
+                <option value="3"> 3 </option>
+            </select>
+    
+            <select  
+            class="sMinuti" formControlName="minuti" (change)="upisiVreme()" (emptied)="upisiVreme()"
+                title="Izaberi vreme aktivnosti u minutima.">
+                <option value="0" selected> </option>
+                <option value="10"> 10 </option>
+                <option value="20"> 20 </option>
+                <option value="30"> 30 </option>
+                <option value="40"> 40 </option>
+                <option value="50"> 50 </option>
+            </select>
+    
+            <textarea class="textAktivnost" readonly cols="1" rows="5">
+{{ potrosnjaE }} 
+            </textarea>
+
+            <button type="button" id="btPromena"  [hidden]="!promenaTrajanja" title="Sačuvaj novo uneto vreme." (click)="promeniTrajanjeAktivnosti()" >💾</button>
+            <button type="button" id="btAktivnost" [hidden]="!ubacivanjeAktivnosti"  (click)="dodajAktivnostTreningu()"> ⇓ upiši aktivnost ⇓ </button>
+            <button type="button" class="btX" (click)="aktivnostX()" >✖</button>
+         </div>
+
+
+        <label class="lbSadrzaj" [hidden]="trening.id == 0" > Trening se sastoji od:</label>
+        <label class="lbUputstvo" [hidden]="trening.id == 0">Označi aktivnost koju želiš da izbaciš iz ovog treninga ili
+            promeniš njeno vreme trajanja.</label>
+        <select name="listbox" id="sSadrzaj" class="sSadrzaj" multiple [hidden]="trening.id == 0"
+            size="brAktivnosti" formControlName="aktivnost" (change)="clickAT()">
+            <option *ngIf="aktivnostiTreninga.length == 0" class="italicNatpis"> U ovaj trening nije uneta nijedna aktivnost. </option>
+            <option *ngFor="let a of aktivnostiTreninga; index as i" value={{a.id}} id={{a.id}}  > 
+                {{ vremenaAktivnosti[i] }}&nbsp;min&nbsp;{{ a.naziv }}&nbsp;=&nbsp;
+                {{ potrosnjePriAktivnostima[i] }}&nbsp;kcal
+            </option>
+        </select>
+
+        <button type="button" id="btDetaljiA" [hidden]="aktivnostT.id == 0" (click)="prikazAktivnosti=true" >prikaži</button>
+        <button class="btPv" id="btPv" type="button" [hidden]="aktivnostT.id == 0" (click)="promenaTrajanja = true"
+            title="Promeni vreme trajanja odabrane aktivnosti."> trajanje ⏳</button>
+
+        <button class="btIzbaci" id="btIzbaci" type="button" [hidden]="aktivnostT.id == 0"
+            (click)="izbaciAktivnostIzTreninga()" title="Ukloni odabranu aktivnost iz ovog treninga.">🗑</button>
+
+        <button class="btObrisi" id="btObrisi" [hidden]="trening.id==0" type="button" (click)="obrisiTrening()"
+            title="Obriši izabrani trening.">🗑</button>
+
+        <button type="button" class="btPreimenuj" id="btPreimenuj" [hidden]="trening.id==0"
+            (click)="clickPreimenuj()" title="Promeni naziv treninga.">✎</button>
+
+            <div class="dPreimenuj" [hidden]="!promena">
+                <label>Unesi novi naziv treninga: </label>
+                <input type="text" formControlName="noviNaziv" (input)="unetNoviNazivTreninga()" (emptied)="unetNoviNazivTreninga()" >
+                <button class="btX" type="button"  title="Odustani od promene naziva i zatvori." (click)="preimenujX()">✖</button>
+                <button id="btNn" title="Sačuvaj novi novi naziv jela." (click)="preimenujTrening()" >💾</button>
+            </div>
+
+
+        <button id="btObjaviTrening" [hidden]="trening.id==0" title="Objavi označeni trening."
+            (click)="objaviTrening()">💬</button>
+
+        <button type="button" class="btX" id="btTreningX" [hidden]="!otvoritrening" title="Zatvori prikaz treninga."
+            (click)="treningX()">✖</button>
+
+    </form>
+
+
+    <h3 class="hTrening" >{{trening.naziv}}</h3>
+
+    <textarea [hidden]="trening.id == 0" class="textTrening" readonly cols="1" rows="6">
+{{ opis }}
+</textarea>
+
+<textarea  [hidden]="trening.id != 0" class="textNijeTrening" cols="1" rows="4" disabled readonly>
+Nije izabran nijedan trening.
+Izaberi iz liste (levo) trening čije detalje želiš da vidiš, ili dodaj novi trening
+upisom  naziva u naznačeno polje (dole levo, ispod spiska).
+</textarea>
+
+    <h3 class="hTr">Treninzi 🏋</h3>
+
+    <form [formGroup]="treninziForm" class="treninziForm">
+
+        <select name="listbox" id="listbox" multiple size={{brTreninga}} class="sTreninzi" formControlName="izabranTrening"
+            (click)="clickTrening()" title="Označi trening ako želiš da vidiš detalje ili ga izmeniš.">
+            <option *ngIf="treninzi.length == 0" title="Unesi naziv novog treninga u polje ispod." class="italicNatpis"> Nema unetih treninga. </option>
+            <option *ngFor="let t of treninzi" value={{t.id}}> {{t.naziv}} </option>
+        </select>
+
+        <div class="dNaziv">
+            <label class="lbTrening" > Unesi naziv novog treninga: </label>
+            <input type="text" formControlName="naziv" 
+            (input)="unetNazivTreninga()" (emptied)="unetNazivTreninga()" (change)="unetNazivTreninga()">
+             <button type="button" id="btTrening"  (click)="dodajNoviTrening()" title="Sačuvaj unet naziv treninga.">💾</button>
+        </div>
+
+    </form>
+
+    <!--img class="srce" src="../assets/slike/srce.jpg" alt="">
+    <img class="gif" id="gif" src={{putanja}} alt="" [hidden]="!gif"-->
+
+
+
+</body>

@@ -1,0 +1,214 @@
+@import "../prikaz-adminu-aktivnosti/prikaz.aa.css";
+
+
+button#btNazad {
+    left: 20px;
+    top: 20px;
+    width: 40px;
+    background-color: transparent;
+    border-color: transparent;
+    font-size: xx-large;
+    font-weight: bolder;
+    color: black;
+    -webkit-text-fill-color: #f0f0f0;
+    -webkit-text-stroke-width: 1px;
+}
+
+h2.hNamirnice {
+    left: 1150px;
+    top: 60px;
+    width: 250px;
+    position: absolute;
+}
+
+body>span>select.sNamirnice {
+    left: 1140px;
+    top: 210px;
+    width: 300px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+form.namirnicaForm {
+    left: 700px;
+    width: 350px;
+    top: 200px;
+    height: 500px;
+    border-radius: 7px;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+}
+
+label.lbNaziv {
+    top: 30px;
+    left: 20px;
+}
+
+input[type="text"].tNaziv {
+    top: 25px;
+    left: 80px;
+    width: 230px;
+}
+
+label.lbVrsta {
+    top: 70px;
+    left: 20px;
+}
+
+select.sVrsta {
+    top: 70px;
+    left: 80px;
+    width: 180px;
+}
+
+label.lbEv {
+    top: 115px;
+    left: 20px;
+    width: 160px;
+}
+
+
+input[type="text"].tEv {
+    top: 110px;
+    left: 185px;
+    width: 85px;
+}
+
+label.lbKcal {
+    top: 115px;
+    left: 280px;
+    width: 20px;
+}
+
+label.lbProtein {
+    top: 165px;
+    left: 20px;
+}
+
+input[type="text"].tProtein {
+    top: 155px;
+    left: 100px;
+    width: 85px;
+}
+
+label.lbUh {
+    top: 200px;
+    left: 20px;
+    width: 200px;
+}
+
+input[type="text"].tUh {
+    top: 195px;
+    left: 180px;
+    width: 85px;
+}
+
+label.lbPg {
+    top: 160px;
+    left: 200px;
+    width: 130px;
+}
+
+label.lbUhG {
+    top: 200px;
+    left: 280px;
+    width: 130px;
+}
+
+label.lbMastG {
+    top: 245px;
+    left: 170px;
+    width: 130px;
+}
+
+label.lbMast {
+    top: 245px;
+    left: 20px;
+    width: 70px;
+}
+
+input[type="text"].tMast {
+    top: 240px;
+    left: 70px;
+    width: 85px;
+}
+
+
+
+label.lbPm {
+    top: 285px;
+    left: 20px;
+    width: 190px;
+}
+
+input[type="text"].tPm {
+    top: 275px;
+    left: 220px;
+    width: 85px;
+}
+
+label.lbNacin {
+    top: 323px;
+    left: 20px;
+}
+
+select.sTip {
+    top: 325px;
+    left: 120px;
+    width: 200px;
+}
+
+select.sDm {
+    top: 355px;
+    left: 120px;
+    width: 200px;
+}
+
+
+
+select.sDb {
+    top: 385px;
+    left: 120px;
+    width: 200px;
+}
+
+
+label.lbOpis {
+    left: 20px;
+    top: 425px;
+}
+
+input[type="text"].tOpis {
+    left: 70px;
+    top: 420px;
+    width: 250px;
+}
+
+form.namirnicaForm>button[type="submit"] {
+    top: 460px;
+    left: 150px;
+}
+
+form.namirnicaForm>button.btX {
+    left: 323px;
+    top: 1px;
+}
+
+
+body {
+    background-color: #fffb9f;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 720px;
+    width: 1530px;
+}
+
+img {
+    top: 300px;
+    left: 400px;
+    width: 200px;
+    height: auto;
+}

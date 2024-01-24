@@ -1,0 +1,23 @@
+<head></head>
+
+<body>
+    <button type="button" class="btNazad" (click)="clickNazad()" title="povratak na početnu stranu">🢀</button>
+
+    <button type="button" class="btJelo" (click)="clickJelo()" title="Vidi svoja jela ili napravi novo.">jelo🍳</button>
+
+    <button type="button" class="btObrok" (click)="clickObrok()"
+        title="Vidi svoje obroke ili napravi novi.">obrok🍽</button>
+
+    <button type="button" class="btTrening" (click)="clickTrening()"
+        title="Vidi svoje treninge ili napravi novi.">trening🏀</button>
+
+    <button type="button" class="btDrustvo" (click)="clickDrustvo()"
+        title="Pročitaj poruke i objave prijatelja.">društvo👪</button>
+
+
+    <dan></dan>
+    <korisnik></korisnik>
+    <stanje (prosledi)="ucitajDanas()"></stanje>
+    <zahtevi></zahtevi>
+    <obavestenja></obavestenja>
+</body>

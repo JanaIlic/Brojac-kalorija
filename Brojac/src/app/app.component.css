@@ -1,0 +1,191 @@
+
+*{
+    position: absolute;
+    scroll-behavior: smooth;
+}
+
+div{
+    padding: 10px;
+}
+
+
+a{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    font-variant: small-caps;
+    color:black;  
+}
+
+
+form {
+    z-index: 1;
+    border-radius: 7px;
+    border-style: solid;
+    background-color: #fffb9f;
+    border-color: black;
+    border-width: 1px;
+}
+
+
+
+button{
+    border-radius: 8px;
+    padding: 0px;
+    background-color: #ebdae0;
+    font-weight: 550;
+    min-width: fit-content;
+}
+
+button.btX{
+    height: 25px;
+    width: 25px;
+    padding: 0px;
+    font-size: smaller;
+    font-weight: bolder;
+    border-radius: 7px;
+}
+
+
+label{
+    display: inline-block;
+    font-weight: bold;
+    
+}
+
+
+select::-webkit-scrollbar{
+    display: none;
+}
+
+input{
+    height: 29px;
+}
+
+
+h1{
+    top:20px;
+}
+
+h1, h2, h3{
+    text-align: center;
+    align-content: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    font-variant: small-caps;
+    color:black;
+    -webkit-text-fill-color:#ebdae0;
+    -webkit-text-stroke-width: 2px;
+    width: inherit;
+}
+
+h3{
+    -webkit-test-stroke-width: 1px;
+}
+
+
+.odgovor{
+    background-color: white;
+    border-color: darkred;
+    min-height: 55px;
+    border-width: 3px;
+    border-radius: 8px;
+    border-style: dashed;
+    width: 380px;
+    height: fit-content;
+    position: fixed;
+    padding: 10px;
+    padding-top: 15px;
+    top: 50px;
+    left: 600px;
+    z-index: 2;
+}
+
+.odgovor > button.btX{
+    position: fixed;
+    top:  52px;
+    left: 953px;
+    z-index: 3;
+}
+
+
+h4, h5 {
+    width: 160px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    font-variant: small-caps;
+    color:black;
+    padding: 0px;
+}
+
+
+.italicNatpis{
+    font-style: italic;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+button.btNazad {
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    width: 40px;
+    background-color: transparent;
+    border-color: transparent;
+    font-size: xx-large;
+    font-weight: bolder;
+    color: black;
+    -webkit-text-fill-color: #ebdae0;
+    -webkit-text-stroke-width: 1px;
+}
+
+body {
+    background-color: #fffb9f;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 720px;
+    width: 1530px;
+    z-index: -1;
+}
+
+
+input[type="radio"]{
+    accent-color: purple;
+}
+
+input[type="checkbox"]{
+    accent-color: purple;
+}
+
+option:checked,  li:checked {
+    border-color: purple;
+    border-style: solid;
+    border-width: 1px;
+    background-color: #ebdae0;
+}
+
+
+
+button.btStrelica{
+    color: black;
+    font-size: x-large;
+    font-weight: bold;
+    -webkit-text-fill-color :#ebdae0;
+    -webkit-text-stroke-width: 2px;
+    border-color: transparent;
+    background-color: transparent;
+    height: fit-content;
+    width: fit-content;
+    align-self: right;
+}
+
+button.btStrelica:disabled{
+    -webkit-text-fill-color: transparent;
+    color: #ebdae0;
+}
+
+
+
+

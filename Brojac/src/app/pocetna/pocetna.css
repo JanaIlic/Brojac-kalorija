@@ -1,0 +1,81 @@
+@import "../app.component.css";
+
+
+h1 {
+    top: 50px;
+   width: inherit;
+   align-content: center;
+}
+
+h2 {
+    top: 100px;
+    left: 300px;
+}
+
+textarea {
+    left: 500px;
+    top: 400px;
+    width: 300px;
+    background-color: transparent;
+    border-color: black;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    font-weight: bold;
+
+}
+
+
+div.prvi>a {
+    top: 200px;
+    left: 600px;
+    width: 100px;
+}
+
+div.drugi>a {
+    top: 280px;
+    left: 850px;
+    width: 100px;
+}
+
+div.drugi>h6 {
+    top: 250px;
+    left: 700px;
+    width: 250px;
+}
+
+a {
+    font-size: larger;
+    font-weight: bold;
+}
+
+
+body {
+    background-color: #fffb9f;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 720px;
+    width: 1530px;
+}
+
+img.kravica {
+    left: 1000px;
+    top: 160px;
+    width: auto;
+    height: 450px;
+}
+
+img.kuvar {
+    top: 80px;
+    left: 40px;
+    width: 200px;
+    height: auto;
+}
+
+img.biciklista {
+    top: 450px;
+    left: 60px;
+    width: 300px;
+    height: auto;
+}

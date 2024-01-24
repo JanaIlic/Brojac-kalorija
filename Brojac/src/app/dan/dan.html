@@ -1,0 +1,125 @@
+<button type="button" class="btDani" (click)="otvoridane=!otvoridane;" title="Vidi sve zabeležene dane.">uneti
+    dani📅</button>
+<form [formGroup]="danForm" class="danForm" >
+    <select [hidden]="!otvoridane" formControlName="dan" class="sDan" multiple size="8"
+        title="Odaberi dan koji te zanima." (click)="nadjiDan()">
+        <option *ngFor="let d of dani" value={{d.id}}> {{funkcije.prikaziDatum(d.datum)}} </option>
+    </select>
+
+    <label class="lbUputstvoO">{{uputstvoO}}</label>
+
+
+    <select class="sUbaceniTreninzi"  id="ut" multiple size="3" formControlName="treningID" title={{titlTrening}}
+        (change)="clickUbacenTrening()">
+        <option  class="italicNatpis" *ngIf="ubaceniTreninzi.length==0" disabled   > {{bezTreninga}} </option>
+        <option *ngFor="let t of ubaceniTreninzi"   value={{t.id}} > {{t.naziv}} </option>
+    </select>
+
+    <button id="utIzbaci"  type="button" [hidden]="ubacenTrening.id == 0" title={{izbaciNatpis}} (click)="izbaciTrening()" >🗑</button>
+    <button id="utPrikazi" type="button"  [hidden]="ubacenTrening.id == 0" title="Prikaži detalje o treningu."  (click)="clickPrikaziUT()">prikaži</button>
+
+    <div class="dPrikaz" id="dUbacenT" [hidden]="!detaljiUT">
+        <p>unet {{datum}}</p>
+        <h3>Trening</h3>
+        <textarea cols="1" rows="7" disabled readonly class="textPrikaz"> {{opisTreninga}} </textarea>
+        <button type="button" title={{izbaciNatpis}} class="btIzbaci" id="btIzbaciT" (click)="izbaciTrening()">izbaci 🗑</button>
+        <button class="btX" (click)="ubacenTreningX()">✖</button>
+    </div>
+
+    <label class="lbUputstvoT">{{uputstvoT}}</label>
+
+    <select class="sUbaceniObroci" multiple size="5"  id="uo"  formControlName="obrokID" title={{titlObrok}} (change)="clickUbacenObrok()">
+        <option  class="italicNatpis" *ngIf="ubaceniObroci.length == 0" disabled> {{bezObroka}} </option>
+        <option *ngFor="let o of ubaceniObroci" value={{o.id}} > {{o.naziv}} </option>
+    </select>
+
+    <button id="uoIzbaci" type="button" [hidden]="ubacenObrok.id == 0" title={{izbaciNatpis}} (click)="izbaciObrok()" >🗑</button>
+    <button id="uoPrikazi" type="button" [hidden]="ubacenObrok.id==0"  title="Prikaži detalje o obroku."  (click)="clickPrikaziUO()" >prikaži</button>
+
+    <div class="dPrikaz" id="dUbacenO" [hidden]="!detaljiUO">
+        <p>unet {{datum}}</p>
+        <h3>Obrok</h3>
+        <textarea cols="1" rows="7" disabled readonly class="textPrikaz"> {{opisObroka}} </textarea>
+        <button type="button" title={{izbaciNatpis}} class="btIzbaci" id="btIzbaciO" (click)="izbaciObrok()">izbaci 🗑</button>
+        <button class="btX" (click)="ubacenObrokX()">✖</button>
+    </div>
+
+
+    <label class="lbPrijava"> Želim današnji izveštaj.📜</label>
+    <input type="checkbox" formControlName="prijava" [checked]="dan.prijava"
+        title="Označi ako želiš da dobiješ današnji izveštaj.U suprotnom, ostavi prazno." (change)="checkPrijava()">
+
+    <button type="button" id="btReset" class="btReset" (click)="obrisiDan()"
+        title="Obriši sve obroke i treninge današnjeg dana, pa možeš ponovo uneti."> reset🗘 </button>
+    <button type="button" id="btIzvestaj" class="btIzvestaj" (click)="clickIzvestaj()"
+        title="Prikaži današnji izveštaj.">izveštaj📃</button>
+</form>
+
+
+<form [formGroup]="obrokForm" class="obrokForm">
+    <h3>Obroci🥣</h3>
+    <select multiple size="9" class="sObroci" formControlName="obrok" id="sObroci" title="Odaberi obrok."
+     (click)="clickObrok()" (wheel)="pomeriObroke()" >
+        <option *ngIf="obroci.length == 0" class="italicNatpis"  title="Odaberi dugme 'obrok' za unos novog obroka." > Nema unetih obroka.</option>
+        <option *ngFor="let o of obroci" value={{o.id}}> {{o.naziv}} </option>
+    </select>
+    <button id="oDirektno" title={{ubaciNatpis}}  (click)="ubaciObrok()">🡸 ubaci</button>
+    <button id="oDetalji" (click)="clickPrikaziO()"  title="Prikaži detalje o obroku."  >prikaži</button>
+
+    <button  class="btStrelica" id="sGoreO"  (click)="pomeriObrokeGore()" >▲</button>
+    <button  class="btStrelica" id="sDoleO" (click)="pomeriObrokeDole()" >▼</button>
+
+</form>
+
+<div class="dPrikaz" id="dObrok" [hidden]="!detaljiO">
+    <h3>Obrok</h3>
+    <textarea cols="1" rows="7" disabled readonly class="textPrikaz">
+{{opisObroka}}
+</textarea>
+    <button type="button" title={{ubaciNatpis}} class="btUbaci" id="btUbaciO" (click)="ubaciObrok()">🡸 ubaci</button>
+    <button class="btX" (click)="obrokX()">✖</button>
+</div>
+
+ <form [formGroup]="treningForm" class="treningForm">
+    <h3>Treninzi🏐</h3>
+    <select multiple size="9" class="sTreninzi" formControlName="trening" id="sTreninzi" title="Odaberi trening."
+        (click)="clickTrening()" (wheel)="pomeriTreninge()" >
+        <option *ngIf="treninzi.length == 0" class="italicNatpis"  title="Odaberi dugme 'trening' za unos novog treninga." > Nema unetih treninga.</option>
+        <option *ngFor="let t of treninzi" value={{t.id}}> {{t.naziv}} </option>
+    </select>
+    <button id="tDirektno" title={{ubaciNatpis}}  (click)="ubaciTrening()" >🡸 ubaci</button>
+    <button id="tDetalji"  title="Prikaži detalje o treningu."  (click)="clickPrikaziT()">prikaži</button>
+    <button  class="btStrelica" id="sGoreT"  (click)="pomeriTreningeGore()" >▲</button>
+    <button   class="btStrelica" id="sDoleT" (click)="pomeriTreningeDole()" >▼</button>
+
+</form>
+
+<div class="dPrikaz" id="dTrening" [hidden]="!detaljiT">
+    <h3>Trening</h3>
+    <textarea cols="1" rows="7" disabled readonly class="textPrikaz">
+{{opisTreninga}}
+</textarea>
+    <button type="button" title={{ubaciNatpis}} class="btUbaci" id="btUbaciT" (click)="ubaciTrening()">🡸 ubaci</button>
+    <button class="btX" (click)="treningX()">✖</button>
+</div>
+
+
+<h3 class="hDan">Pregled dana</h3>
+<textarea disabled class="textDan" readonly cols="1" rows="9">
+                                                                                                                             {{datum}}                                                                   
+dnevne potrebe: {{dnevneEP}} kcal
+unos energije: {{unos}} kcal
+rezultat: {{rezultat}}
+</textarea>
+
+<button class="btX" id="btIzvestajX" [hidden]="!otvoriizvestaj" (click)="clickIzvestajX()"
+    title="Zatvori današnji izveštaj.">✖</button>
+<textarea [hidden]="!otvoriizvestaj" disabled readonly class="tIzvestaj" cols="1" rows="10">
+    {{ izvestaj.poruka }}
+</textarea>
+
+
+<p class="odgovor" [hidden]="poruka==''">
+    {{poruka}}
+    <button class="btX" (click)="poruka=''">✖</button>
+</p>

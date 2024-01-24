@@ -1,0 +1,161 @@
+@import "../app.component.css";
+
+
+img.slika {
+    top: 100px;
+    left: 30px;
+    height: auto;
+    max-height: 210px;
+    max-width: 200px;
+    width: 200px;
+}
+
+
+h3.hIme{
+    left: 250px;
+    top: 100px;
+}
+
+textarea.textK {
+    top: 140px;
+    width: 200px;
+    left: 250px;
+    padding: 0px;
+}
+
+
+textarea.italicNatpis {
+    top: 140px;
+    width: 320px;
+    padding: 10px;
+    left: 50px;
+}
+
+
+button.btPrati {
+    left: 250px;
+    top: 240px;
+    width: 70px;
+}
+
+button.btUkloni {
+    left: 890px;
+    top: 140px;
+
+}
+
+button#btKorisnikX {
+    top: 140px;
+    left: 426px;
+}
+
+form.pretragaForm>button#btPretragaX {
+    top: 140px;
+    width: 25px;
+    height: 25px;
+    left: 1155px;
+    align-content: left;
+}
+
+option {
+    position: relative;
+}
+
+form.praceniForm>select {
+    width: 250px;
+    top: 225px;
+    left: 1230px;
+}
+
+form.praceniForm>h3 {
+    top: 195px;
+    left: 1230px;
+    width: 250px;
+}
+
+form.pratiociForm>select {
+    width: 250px;
+    top: 470px;
+    left: 1230px;
+}
+
+form.pratiociForm>h3 {
+    top: 440px;
+    left: 1230px;
+    width: 240px;
+}
+
+button.btPratioci {
+    width: 55px;
+    top: 190px;
+    left: 1425px;
+    font-size: smaller;
+    height: 28px;
+    padding: 0px;
+}
+
+form.pretragaForm>label.lbTrazi {
+    top: 163px;
+    width: 50px;
+    left: 1230px;
+    line-height: 20px;
+}
+
+form.pretragaForm>input {
+    top: 155px;
+    width: 150px;
+    left: 1280px;
+}
+
+form.pretragaForm>button.btTrazi {
+    top: 155px;
+    width: 35px;
+    left: 1440px;
+}
+
+
+form.pretragaForm>label.lbRez {
+    top: 140px;
+    width: 80px;
+    left: 980px;
+}
+
+form.pretragaForm>select {
+    top: 170px;
+    width: 200px;
+    left: 980px;
+}
+
+
+
+
+form.slanjeForm>input[type="text"] {
+    top: 325px;
+    left: 550px;
+    width: 300px;
+}
+
+form.slanjeForm>label.lbPozdrav {
+    left: 550px;
+    width: 300px;
+    top: 300px;
+}
+
+form.slanjeForm>label.lbPrijava {
+    left: 550px;
+    top: 360px;
+    width: 300px;
+}
+
+form.slanjeForm>input[type="checkbox"] {
+    left: 836px;
+    top: 388px;
+    width: 15px;
+    height: 15px;
+}
+
+form.slanjeForm>button {
+    width: 60px;
+    left: 670px;
+    top: 420px;
+}

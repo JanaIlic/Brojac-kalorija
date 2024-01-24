@@ -1,0 +1,57 @@
+<head></head>
+
+<body>
+
+  <button type="button" class="btNazad" title="povratak na početnu stranu" (click)="clickNazad()">🢀</button>
+
+  <span>
+    <form [formGroup]="prijavaForm" (ngSubmit)="provera()">
+      <h1> Prijava </h1>
+
+
+      <div> <label class="lbIme">korisnčko ime:</label>
+        <input class="ime" type="text" formControlName="ime" title="Unesi korisničko ime.">
+      </div>
+      <div> <label class="lbSifra"> 🗝 šifra: </label>
+        <input class="sifra" title="Unesi šifru." [type]="prikazi ? 'text' : 'password'" formControlName="sifra">
+      </div>
+      <input type="button" class="btPrikaz" title="Pritisni ovde da bi se prikazala šifra." value={{natpis}}
+        (click)="prikaziSifru()">
+      <div>
+        <label class="lbKao">kao</label>
+        <label class="lbKorisnik" title="Označi polje ako se prijavljuješ kao korisnik." >korisnik</label>
+        <label class="lbadminAA"
+          title="Označi polje ako se prijavljuješ kao administrator aktivnosti.">admin aktivnosti </label>
+        <label class="lbadminAN"
+          title="Označi polje ako se prijavljuješ kao administrator namirnica.">admin namirnica </label>
+        <span>
+          <button type="submit" id="btPrijaviSe" title="Obavezno je označiti da li si korisnik ili administrator." >Prijavi se</button>
+        </span>
+        <span>
+          <input type="radio" id="obican" class="obicanKorisnik"  formControlName="obicanKorisnik"  (change)="checkKorisnik()"
+          title="Označi ako se prijavljuješ kao korisnik." >
+          <input type="radio" class="adminAA" formControlName="adminAA" (change)="checkAA()"
+            title="Označi ako se prijavljuješ kao administrator aktivnosti.">
+          <input type="radio" class="adminAN" formControlName="adminAN" (change)="checkAN()"
+            title="Označi ako se prijavljuješ kao administrator namirnica.">
+        </span>
+      </div>
+      <div>
+        <p class="poruka"> {{poruka}} </p>
+      </div>
+    </form>
+  </span>
+
+  <!--p class="greska"> {{greska}} </p-->
+
+  <p class="odgovor" [hidden]="greska==''">
+    {{greska}}
+    <button class="btX" (click)="greska=''">✖</button>
+</p>
+
+
+  <!--img class="kravica" src="../assets/slike/kravica.jpg" alt="">
+  <img class="kuvar" src="../assets/slike/kuvar.jpg" alt="">
+  <img class="biciklista" src="../assets/slike/biciklista.jpg" alt=""-->
+
+</body>

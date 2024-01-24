@@ -1,0 +1,41 @@
+<head></head>
+
+<body>
+    <span>
+        <div>
+            <h6> {{ admin.ime }} </h6>
+            <button type="button" class="btPodaci" (click)="adminforma = true" title="Vidi svoje lične podatke."> lični
+                podaci👤</button>
+
+            <form [formGroup]="adminForm" class="adminForm" [hidden]="!adminforma" (ngSubmit)="adminSacuvaj()">
+                <label class="lbIme">novo ime: </label>
+                <input class="tIme" type="text" formControlName="ime" (input)="unosImena()" (emptied)="unosImena()"
+                    title="Ako želiš da promeniš svoje korisničko ime, ovde unesi novo." />
+
+                <label class="lbSifra">🔑šifra:</label>
+                <input class="tSifra" [type]="prikazi ? 'text' : 'password'" formControlName="sifra"
+                    (input)="unosSifre()" (emptied)="unosSifre()"
+                    title="Ako želiš da promeniš šifru, ovde unesi novu, od najmanje 8 karaktera." />
+                <label class="lbPotvrda">potvrda šifre:</label>
+                <input class="tPotvrda" [type]="prikazi ? 'text' : 'password'" formControlName="potvrda"
+                    (input)="unosSifre()" (emptied)="unosSifre()" title="Potvrdi unetu šifru." />
+
+                <input type="button" class="btPrikaz" title="Pritisni ovde da bi se prikazala šifra." value={{natpis}}
+                    (click)="prikaziSifru()">
+                <button type="submit" id="btSubmit" title="Sačuvaj promenu.">💾</button>
+                <button type="button" class="btX" title="Zatvori podatke." (click)="adminforma=false">✖</button>
+
+                <p class="odgovor" [hidden]="porukaAdmin==''"> {{porukaAdmin }}
+                    <button class="btX" (click)="porukaAdmin=''">✖</button>
+                </p>
+
+                <p class="objasnjenje"> Ako želiš da promeniš ime, ili šifru, unesi nove, pa klikni na "💾" da sačuvaš
+                    promenu.</p>
+            </form>
+        </div>
+    </span>
+    <span>
+        <button class="odjava" type="button" (click)="odjaviSe()"> odjavi se </button>
+    </span>
+
+</body>

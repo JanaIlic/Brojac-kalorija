@@ -1,0 +1,198 @@
+@import "../app.component.css";
+
+button.btObavestenja {
+    top: 30px;
+    left: 1250px;
+    width: 120px;
+}
+
+select, ul, li{
+    z-index: 4;
+}
+
+
+ul.uVrsta {
+    top: 60px;
+    left: 1200px;
+    width: 190px;
+    overflow: hidden;
+    list-style-type: none;
+}
+
+
+ul.uVrsta>li {
+    width: 210px;
+    height: 30px;
+    background-color: white;
+    position: relative;
+    padding-left: 10px;
+}
+
+
+ul.uVrsta>li>h6 {
+    min-width: 30px;
+    max-width: 60px;
+    width: 200px;
+    height: fit-content;
+    background-color: transparent;
+    position:relative;
+    top: 0px;
+    padding: 0px;
+    font-size: small;
+    font-weight: bold;
+    display: inline;
+}
+
+
+
+
+ul.uRezultati {
+    top: 120px;
+    left: 945px;
+    width: 520px;
+    height: fit-content;
+    max-height: 550px;
+    z-index: 1;
+    background-color: #fffb9f;
+    list-style-type: none;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+div.dRez{
+    background-color: #fffb9f;
+    top: 60px;
+    height: 60px;
+    left: 945px;
+    width: 520px;
+    z-index: 3;
+}
+
+
+div.dRez>button.btX{
+    position: relative;
+    left: 465px;
+    top: 1px;
+}
+
+
+
+ul.uRezultati>li {
+    position: relative;
+    left: 0px;
+    height: fit-content;
+    min-height: 50px;
+    width: 500px;
+    border-bottom-width: 20px;
+    border-bottom-color: transparent;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: transparent;
+}
+
+li>textarea.tRez {
+    position: relative;
+    left: 0px;
+    top: 0px;
+    width: 470px;
+    height: fit-content;
+    overflow: hidden;
+}
+
+
+
+ul.uIzvestaji {
+    top: 120px;
+    left: 955px;
+    width: 510px;
+    height: fit-content;
+    max-height: 550px;
+    z-index: 1;
+    background-color: #fffb9f;
+    list-style-type: none;
+    overflow: hidden;
+    overflow-y: scroll;
+    scroll-behavior: smooth;   
+}
+
+ul.uIzvestaji::scroll{
+    
+}
+
+
+
+div.dIz{
+    background-color: #fffb9f;
+    top: 60px;
+    height: 60px;
+    left: 955px;
+    width: 520px;
+    z-index: 3;
+}
+
+
+div.dIz>button.btX{
+    position: relative;
+    left: 455px;
+}
+
+
+
+ul.uIzvestaji>li {
+    position: relative;
+    left: -10px;
+    height: fit-content;
+    min-height: 50px;
+    width: 500px;
+    border-bottom-width: 20px;
+    border-bottom-color: transparent;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: transparent;
+}
+
+li>textarea.tIz {
+    position: relative;
+    left: 0px;
+    top: 0px;
+    width: 470px;
+    height: fit-content;
+    overflow: hidden;
+}
+
+
+h3{
+    width: inherit;
+    align-content: center;
+    font-size: 30px;
+}
+
+
+::-webkit-scrollbar{
+    visibility: hidden;
+}
+
+
+
+
+button.btStrelica{
+    z-index: 4;
+    left: 1400px;
+}
+
+button#izDole{
+    top: 665px;
+}
+
+button#izGore{
+    top: 85px;
+}
+
+
+button#rezDole{
+    top: 665px;
+}
+
+button#rezGore{
+    top: 85px;
+}

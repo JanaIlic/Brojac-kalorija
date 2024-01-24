@@ -1,0 +1,388 @@
+@import "../app.component.css";
+
+body{
+    z-index: 1;
+    width: fit-content;
+}
+
+option,
+optgroup {
+    position: relative;
+}
+
+button.btA {
+    top: 405px;
+    left: 30px;
+    width: 150px;
+}
+
+button.btN {
+    top: 450px;
+    left: 30px;
+    width: 150px;
+}
+
+button.btP {
+    top: 495px;
+    left: 30px;
+    width: 150px;
+}
+
+button.btB {
+    top: 580px;
+    left: 30px;
+    width: 150px;
+}
+
+button.btPV {
+    top: 540px;
+    left: 30px;
+    width: 55px;
+}
+
+button.btPT {
+    top: 540px;
+    left: 90px;
+    width: 55px;
+}
+
+button.btPC {
+    top: 540px;
+    left: 150px;
+    width: 30px;
+}
+
+
+label.lbDatum {
+    top: 5px;
+    left: 5px;
+    width: 50px;
+}
+
+form {
+    z-index: 1;
+    border-radius: 7px;
+    border-style: solid;
+    background-color: #fffb9f;
+    border-color: black;
+    border-width: 1px;
+}
+
+form.traziStanjeForm {
+    left: 180px;
+    top: 470px;
+    width: 330px;
+    height: 50px;
+    z-index: 1;
+    background-color: #fffb9f;
+    border-color: black;
+    border-width: 2px;
+}
+
+form.traziStanjeForm>button.btX {
+    left: 300px;
+    top: 2px;
+}
+
+
+span>select.sDatum {
+    top: 0px;
+    left: 70px;
+    width: 210px;
+    height: 30px;
+}
+
+
+
+form.visinaForm {
+    top: 500px;
+    left: 180px;
+    width: 190px;
+    height: 90px;
+}
+
+form.tezinaForm {
+    top: 500px;
+    left: 180px;
+    width: 190px;
+    height: 90px;
+}
+
+form.tezinaForm>button.btX {
+    top: 1px;
+    left: 162px;
+}
+
+form.visinaForm>button.btX {
+    top: 1px;
+    left: 162px;
+}
+
+form.visinaForm>input[type="text"].tVisina {
+    top: 15px;
+    left: 70px;
+    width: 50px;
+}
+
+form.visinaForm>label.lbVisina {
+    top: 20px;
+    left: 10px;
+    width: 50px;
+}
+
+form.visinaForm>label.lbCm {
+    top: 20px;
+    left: 130px;
+    width: 30px;
+}
+
+form.tezinaForm>input[type="text"].tTezina {
+    top: 15px;
+    left: 70px;
+    width: 50px;
+}
+
+form.tezinaForm>label.lbTezina {
+    top: 20px;
+    left: 10px;
+    width: 120px;
+}
+
+form.tezinaForm>label.lbKg {
+    top: 20px;
+    left: 130px;
+    width: 40px;
+}
+
+form.tezinaForm>button[type="submit"] {
+    left: 70px;
+    top: 50px;
+}
+
+form.visinaForm>button[type="submit"] {
+    left: 70px;
+    top: 50px;
+}
+
+
+
+form.ciljForm {
+    left: 180px;
+    width: 330px;
+    height: 100px;
+    top: 500px;
+}
+
+form.ciljForm>div>label.lbKilaza {
+    top: 20px;
+    left: 10px;
+    width: 170px;
+}
+
+
+
+form.ciljForm>div>label.lbKgCilj {
+    top: 20px;
+    left: 200px;
+    width: 20px;
+}
+
+form.ciljForm>div>button.btCilj {
+    top: 17px;
+    left: 255px;
+}
+
+form.ciljForm>div>input[type="text"].tCilj {
+    top: 15px;
+    left: 140px;
+    width: 50px;
+}
+
+form.ciljForm>button.btX {
+    top: 1px;
+    left: 302px;
+}
+
+
+form.ciljForm>div>label.lbPeriod {
+    top: 60px;
+    left: 10px;
+    width: 150px;
+}
+
+form.ciljForm>div>select.sPeriod {
+    top: 60px;
+    left: 95px;
+    width: 150px;
+}
+
+form.ciljForm>div>button.btPeriod {
+    top: 55px;
+    left: 255px;
+}
+
+
+h3{
+    top: 300px;
+    left: 320px;
+    width: 200px;
+}
+
+
+form.ntForm {
+    left: 180px;
+    width: 600px;
+    height: 350px;
+    top: 300px;
+
+}
+
+form.ntForm>h3{
+    left: 180px;
+    top: 10px;
+    width: 250px;
+}
+
+form.ntForm>button.btX {
+    left: 572px;
+    top: 1px;
+}
+
+
+form.ntForm>label.lbTrajanje {
+    top: 50px;
+    left: 10px;
+    width: 570px;
+    font-size: smaller;
+    text-align: justify;
+    line-height: 15px;
+}
+
+
+form.ntForm>label.lbSati {
+    top: 110px;
+    left: 285px;
+}
+
+form.ntForm>label.lbMinuti {
+    top: 110px;
+    left: 380px;
+}
+
+
+form.ntForm>button[type="submit"] {
+    top: 220px;
+    left: 20px;
+}
+
+
+form.ntForm>select.sSati {
+    left: 230px;
+    top: 110px;
+    width: 50px;
+}
+
+form.ntForm>select.sMinuti {
+    left: 320px;
+    top: 110px;
+    width: 50px;
+}
+
+form.ntForm>div>select.sAktivnost {
+    left: 10px;
+    top: 110px;
+    width: 200px;
+}
+
+
+form.ntForm>div>button[type="button"] {
+    top: 108px;
+    left: 460px;
+    width: 120px;
+}
+
+form.ntForm>h5{
+    top: 160px;
+    left: 20px;
+    width: 180px;
+}
+
+form.ntForm>ul {
+    top: 160px;
+    left: 230px;
+    width: fit-content;
+    height: fit-content;
+    list-style-type: none;
+    z-index: 1;
+    background-color: transparent;
+    border-radius: 10px;
+    border-width: 1px;
+    border-top-left-radius: 0px;
+    border-style: none;
+    border-top-style: solid ;
+    padding: 0px;
+}
+
+
+form.ntForm>ul>li {
+    width: 350px;
+    height: 26px;
+    padding: 0px;
+    padding-left: 5px;
+    position: relative;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-top-style: none;
+    border-color: gray;
+    background-color: whitesmoke;
+}
+
+
+
+form.brisanjeForm {
+    top: 500px;
+    left: 180px;
+    width: 380px;
+    height: 80px;
+    z-index: 1;
+    background-color: #fffb9f;
+    border-color: black;
+    border-width: 2px;
+}
+
+form.brisanjeForm>button[type="submit"] {
+    left: 170px;
+    top: 40px;
+}
+
+form.brisanjeForm>button.btX {
+    left: 351px;
+    top: 1px;
+}
+
+form.brisanjeForm>label {
+    left: 10px;
+    top: 10px;
+    width: 350px;
+}
+
+
+
+textarea {
+    left: 220px;
+    top: 330px;
+    height: 320px;
+    width: 400px;
+    text-align: left;
+    margin-left: 0px;
+    padding-left: 0px;
+    z-index: 1;
+}
+
+button#aktX{
+    top: 331px;
+    left: 595px;
+    z-index: 2;
+}

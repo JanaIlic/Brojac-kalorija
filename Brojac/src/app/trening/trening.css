@@ -1,0 +1,562 @@
+@import "../app.component.css";
+
+button.odjava {
+    left: 1380px;
+    top: 30px;
+    width: 80px;
+}
+
+h3.hAkt {
+    left: 1220px;
+    top: 130px;
+    width: 250px;
+}
+
+form {
+    border-radius: 7px;
+    border-style: solid;
+    background-color: #fffb9f;
+    border-color: black;
+    border-width: 1px;
+    z-index: 1;
+}
+
+form.treningForm>select.sAktivnosti {
+    left: 1220px;
+    top: 230px;
+    width: 250px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+form.treningForm > button#ubaciA{
+    left: 1220px;
+    top: 615px;
+    width: 130px;
+}
+
+form.treningForm > button#prikaziA{
+    left: 1360px;
+    top: 615px;
+    width: 70px;
+}
+
+form.treningForm > button#sDoleA{
+    left: 1445px;
+    top: 605px;
+}
+
+form.treningForm > button#sGoreA{
+    left: 1444px;
+    top: 190px;
+}
+
+
+form.treningForm>label.lbTrajanje {
+    top: 420px;
+    left: 200px;
+    width: 500px;
+    font-size: smaller;
+}
+
+
+form.treningForm>label.lbSati {
+    top: 460px;
+    left: 490px;
+}
+
+form.treningForm>label.lbMinuti {
+    top: 460px;
+    left: 620px;
+}
+
+
+button#btTreningX {
+    top: 380px;
+    left: 705px;
+}
+
+
+form.treningForm>select.sSati {
+    left: 420px;
+    top: 460px;
+    width: 50px;
+}
+
+form.treningForm>select.sMinuti {
+    left: 550px;
+    top: 460px;
+    width: 50px;
+}
+
+
+
+option {
+    position: relative;
+    padding: 0px;
+}
+
+form.treningForm>textarea.textAktivnost {
+    top: 300px;
+    width: 250px;
+    left: 850px;
+    text-align: justify;
+    padding: 10px;
+}
+
+
+form.traziForm>input {
+    left: 1265px;
+    top: 190px;
+    width: 140px;
+}
+
+form.traziForm>button {
+    left: 1410px;
+    top: 190px;
+    width: 30px;
+}
+
+label.lbPretraga {
+    left: 1220px;
+    top: 195px;
+    width: 40px;
+}
+
+
+
+form.zahtevForm {
+    background-color: white;
+    top: 70px;
+    left: 430px;
+    width: 450px;
+    height: 150px;
+    z-index: 2;
+}
+
+form.zahtevForm>label.lbNaziv {
+    top: 35px;
+    width: 130px;
+    left: 10px;
+}
+
+form.zahtevForm>input.tNaziv {
+    top: 25px;
+    width: 280px;
+    left: 140px;
+}
+
+form.zahtevForm>label.lbPrijava {
+    top: 105px;
+    width: 370px;
+    left: 10px;
+}
+
+form.zahtevForm>input[type="checkbox"] {
+    top: 110px;
+    width: 15px;
+    height: 15px;
+    left: 385px;
+}
+
+form.zahtevForm>label.lbNapomena {
+    top: 70px;
+    width: 110px;
+    left: 10px;
+}
+
+form.zahtevForm>input.tNapomena {
+    top: 65px;
+    width: 300px;
+    left: 120px;
+}
+
+form.zahtevForm>button.btPosalji {
+    top: 105px;
+    left: 410px;
+}
+
+form.zahtevForm>button.btX {
+    top: 1px;
+    left: 422px;
+}
+
+
+button.btDa {
+    top: 140px;
+    left: 1030px;
+    z-index: 2;
+}
+
+button.btNe {
+    top: 140px;
+    left: 1080px;
+    z-index: 2;
+}
+
+p.greska {
+    top: 30px;
+    left: 950px;
+    width: 250px;
+    height: 150px;
+    text-align: justify;
+    background-color: white;
+    border-radius: 7px;
+    padding: 10px;
+    z-index: 1;
+}
+
+
+button.btZahtevi {
+    left: 790px;
+    top: 30px;
+    width: 160px;
+}
+
+label.lbPredlog{
+    left: 1220px;
+    top: 650px;
+    font-size: small;
+    font-weight: bold;
+    line-height: 13px;
+    inline-size: 130px;
+}
+
+button.btPz {
+    left: 1340px;
+    top: 650px;
+    width: 130px;
+}
+
+form.poslatZahtevForm>select.zahtevi {
+    left: 790px;
+    top: 60px;
+    width: 160px;
+}
+
+
+textarea.detalji {
+    top: 60px;
+    left: 800px;
+    width: 550px;
+    font-weight: bolder;
+    color: black;
+    text-align: justify;
+    background-color: white;
+    z-index: 1;
+}
+
+button.btPovuci {
+    top: 90px;
+    left: 1360px;
+
+}
+
+button.btX {
+    top: 60px;
+    left: 1325px;
+    z-index: 2;
+}
+
+
+
+form.treningForm>label.lbSadrzaj {
+    top: 390px;
+    width: 170px;
+    left: 460px;
+}
+
+
+form.treningForm>label.lbUputstvo {
+    top: 625px;
+    width: 550px;
+    left: 460px;
+    font-size: small;
+    font-weight: bold;
+    line-height: 15px;
+}
+
+
+form.treningForm>select.sSadrzaj {
+    top: 420px;
+    width: 540px;
+    height: 200px;
+    left: 460px;
+    padding: 10px;
+}
+
+form.treningForm>button#btDetaljiA{
+    position: fixed;
+    z-index: 6;
+    left: 840px;
+    height: 23px;
+    width: 55px;
+    font-size: smaller;
+    font-weight: bold;
+}
+
+form.treningForm>button.btIzbaci {
+    position: fixed;
+    z-index: 6;
+    left: 973px;
+    width: fit-content;
+    height: 23px;
+    font-size: smaller;
+}
+
+form.treningForm>button.btPv {
+    position: fixed;
+    z-index: 6;
+    left: 900px;
+    height: 23px;
+    width: fit-content;
+    font-size: smaller;
+    font-weight: bold;
+
+}
+
+form.treningForm>button.btPreimenuj {
+    top: 245px;
+    left: 973px;
+    width: fit-content;
+}
+
+form.treningForm>button.btObrisi {
+    top: 350px;
+    left: 973px;
+    width: fit-content;
+}
+
+form.treningForm>button#btObjaviTrening {
+    top: 295px;
+    left: 973px;
+    width: fit-content;
+}
+
+
+form.treningForm > div.dOznacena{
+    position: fixed;
+    top: 140px;
+    left: 460px;   
+    width: 540px;
+    height: 280px;
+    border-width: 1px;
+    border-radius: 8px;
+    border-color: black;
+    border-style: solid;
+    z-index: 3;
+    background-color: #fffb9f;
+    padding-top: 0px;
+}
+
+div.dOznacena>h3{
+    position: relative;
+    padding: 0px;
+    top: 5px;
+    left: 10px;
+    width: 520px;
+    align-content: center;
+}
+
+div.dOznacena > textarea{
+    top: 50px;
+    left: 20px;
+    width: 500px;
+    padding: 10px;
+}
+
+div.dOznacena > label.lbTrajanje {
+    top: 200px;
+    left: 20px;
+    width: 270px;
+}
+
+div.dOznacena >select.sSati {
+    left: 270px;
+    top: 200px;
+}
+
+div.dOznacena >label.lbSati {
+    left: 320px;
+    top: 200px;
+}
+
+div.dOznacena >label.lbMinuti {
+    left: 460px;
+    top: 200px;
+}
+
+div.dOznacena >select.sMinuti {
+    left: 400px;
+    top: 200px;
+}
+
+div.dOznacena >button#btAktivnost {
+    left: 190px;
+    top: 240px;
+    width: 150px;
+}
+
+div.dOznacena >button#btPromena {
+    left: 270px;
+    top: 240px;
+    width: fit-content;
+}
+
+
+div.dOznacena >button.btX {
+    left: 512px;
+    top: 1px;
+}
+
+
+textarea.textTrening {
+    top: 190px;
+    left: 460px;
+    width: 510px;
+    height: 190px;
+    text-align: justify;
+    padding: 10px;
+}
+
+textarea.textNijeTrening {
+    top: 190px;
+    left: 460px;
+    width: 540px;
+    height: fit-content;
+    text-align: justify;
+    padding: 10px;
+    font-style: italic;
+}
+
+
+form.treningForm>div.dPreimenuj{
+    top: 180px;
+    left: 980px;
+    width: 205px;
+    height: 65px;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 8px;
+    padding: 0px;
+    background-color: #fffb9f;
+    z-index: 3;
+}
+
+div.dPreimenuj>label{
+    top: 5px;
+    left: 10px;
+    font-size: small;
+    font-weight:  bold;
+}
+
+div.dPreimenuj> button.btX{
+    position: relative;
+    top: 1px;
+    left: 177px;
+}
+
+div.dPreimenuj>input{
+    top: 30px;
+    left: 10px;
+    width: 160px;
+}
+
+div.dPreimenuj>button#btNn{
+    top: 30px;
+    left: 175px;
+}
+
+form.treningForm>button#btTreningX{
+    top: 190px;
+    left: 973px;
+}
+
+form.treninziForm {
+    left: 50px;
+    width: 240px;
+    top: 190px;
+    height: fit-content;
+    padding-bottom: 10px;
+    border-style: none;
+}
+
+form.treninziForm>select.sTreninzi {
+    position: relative;
+    left: 10px;
+    width: 220px;
+    top: 0px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    overflow-y: scroll;
+}
+
+
+form.treninziForm>div.dNaziv {
+    position: relative;
+    top: -15px;
+    width: 220px;
+    left: 10px;
+    height: 70px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    border-radius: 8px;
+    border-top-left-radius: 0px;
+    background-color: #fffb9f;
+}
+
+form.treninziForm>div.dNaziv>input {
+    position: relative;
+    top: 20px;
+    width: 150px;
+    left: 0px;
+}
+
+form.treninziForm>div.dNaziv>button {
+    position: relative;
+    top:  20px;
+    left: 10px;
+}
+
+form.treninziForm>div.dNaziv>label {
+    top: 10px;
+    width: 200px;
+    left: 10px;
+    font-size: small;
+    font-weight: bold;
+}
+
+
+
+h3.hTr {
+    left: 70px;
+    top: 140px;
+    width: 200px;
+}
+
+
+h3.hTrening {
+    left: 460px;
+    width: 540px;
+    top: 130px;
+    font-size: 40px;
+
+}
+
+
+img.srce {
+    left: 900px;
+    top: 500px;
+    width: 200px;
+    height: auto;
+}
+
+img.gif {
+    top: 50px;
+    width: 150px;
+
+
+}
+

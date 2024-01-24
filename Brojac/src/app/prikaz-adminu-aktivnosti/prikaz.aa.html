@@ -1,0 +1,83 @@
+<head></head>
+
+<body>
+
+    <button type="button" id="btNazad" (click)="clickNazad()">🢀</button>
+
+    <label class="lbAdmin"> Administrator aktivnosti: </label>
+    <admin></admin>
+
+    <span>
+        <span>
+            <button class="btNovi" (click)="clickNoviZahtevi()" title="Pogledaj nove zahteve."> novi zahtevi 🙏</button>
+            <button class="btStari" (click)="clickStariZahtevi()" title="Pogledaj stare, već obrađene zahteve.">obrađeni
+                zahtevi✔</button>
+
+            <select class="zahtevi" multiple size="brZahteva" [hidden]="!otvoriStare && !otvoriNove"
+                title="Označi zahtev za prikaz detalja.">
+                <option *ngIf="zahtevi.length == 0" disabled>Nema primljenih zahteva. </option>
+                <option *ngFor="let z of zahtevi" value="z.id" (click)="clickZahtev(z)"> {{ z.nazivAktivnosti }}
+                </option>
+            </select>
+        </span>
+
+        <p class="detalji" [hidden]="zahtev.id == 0 || otvoriNove || otvoriStare"> {{ detalji }} </p>
+        <button type="button" class="btPrihvati" id="btPrihvati" [hidden]="zahtev.id == 0" (click)="prihvatiZahtev()"
+            title="Prihvati zahtev."> 👍 </button>
+        <button type="button" class="btIspuni" id="btIspuni" [hidden]="zahtev.id == 0" (click)="ispuniZahtev()"
+            title="Ispuni zahtev.">✔</button>
+        <button type="button" class="btOdbij" id="btOdbij" (click)="odbijZahtev()" [hidden]="zahtev.id == 0"
+            title="Odbij zahtev."> 👎 </button>
+        <button type="button" class="btX" [hidden]="zahtev.id == 0" (click)="zatvoriZahtev()"
+            title="Zatvori detalje o zahtevu.">✖</button>
+    </span>
+
+
+    <span>
+
+
+        <form [formGroup]="aktivnostForm" class="aktivnostForm" [hidden]="!(dodavanje || promena)"
+            (ngSubmit)="aktivnostSacuvaj()">
+            <label class="lbNaziv"> naziv aktivnosti: </label>
+            <input type="text" class="tNaziv" formControlName="naziv" title="Upiši naziv nove aktivnosti.">
+
+            <label class="lbNivo"> nivo težine: </label>
+            <input type="text" class="tNivo" formControlName="nt" title="Upiši nivo težine nove aktivnosti.">
+            <button type="submit" id="btSacuvaj" title="Sačuvaj novu aktivnost."> 💾 </button>
+            <button type="button" class="btX" (click)="zatvoriAktivnost()" title="Zatvori upis aktivnosti.">✖</button>
+        </form>
+
+        <span>
+            <h2 class="hAktivnosti"> 🏋AKTIVNOSTI🏃 </h2>
+            <label class="lbPretraga"> Traži: </label>
+
+            <form [formGroup]="traziAktivnostForm" class="traziForm" (ngSubmit)="pretraziAktivnosti()">
+                <input type="text" formControlName="unos" title="Unesi naziv aktivnosti koju tražiš."
+                    (keydown)="popunjeno()" (emptied)="popunjeno()">
+                <button type="submit" id="btTrazi" [disabled]="!pretraga" title="Pokreni pretragu.">🔎</button>
+            </form>
+
+            <p class="odgovor" [hidden]="poruka==''">
+                {{poruka}}
+                <button class="btX" (click)="poruka=''">✖</button>
+            </p>
+        </span>
+
+        <select name="listbox" id="listbox" multiple size="20" class="sAktivnosti"
+            title="Označi aktivnost čije podatke želiš da vidiš.">
+            <option *ngFor="let a of aktivnosti" value={{a.id}} (click)="clickAktivnost(a)"> {{a.naziv}} </option>
+        </select>
+
+        <button type="button" class="btDodaj" id="btDodaj" (click)="clickDodajAktivnost()"
+            title="Dodaj novu aktivnost.">➕</button>
+        <button type="button" class="btObrisi" id="btObrisi" title="Obriši odabranu aktivnost."
+            (click)="obrisiAktivnost()">🗑</button>
+        <button type="button" class="btDodate" (click)="ucitajAktivnosti()"
+            title="Prikaži sve aktivnosti, ili samo one koje si dodao."> {{natpis}} </button>
+
+    </span>
+
+
+    <!--img src="../assets/slike/sportovi.jpg" alt=""-->
+
+</body>

@@ -1,0 +1,56 @@
+@import "../app.component.css";
+
+button.btZn {
+    top: 30px;
+    left: 600px;
+    width: 165px;
+}
+
+button.btZa {
+    top: 30px;
+    left: 775px;
+    width: 165px;
+}
+
+
+
+option {
+    position: relative;
+}
+
+form.poslatZahtevForm>select.sZn {
+    left: 600px;
+    top: 60px;
+    width: 166px;
+}
+
+form.poslatZahtevForm>select.sZa {
+    left: 775px;
+    top: 60px;
+    width: 165px;
+}
+
+
+
+textarea.detalji {
+    top: 60px;
+    left: 630px;
+    width: 500px;
+    font-weight: bolder;
+    color: black;
+    text-align: justify;
+    background-color: white;
+}
+
+
+button.btPovuci {
+    top: 70px;
+    left: 1140px;
+}
+
+
+
+button.btX {
+    top: 60px;
+    left: 1105px;
+}

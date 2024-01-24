@@ -1,0 +1,18 @@
+@import "../app.component.css";
+
+button.odjava {
+    left: 1400px;
+    top: 30px;
+    width: 80px;
+}
+
+body{
+        background-color: #fffb9f;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        background-size: cover;
+        height: 720px;
+        width: 1530px;   
+}
+

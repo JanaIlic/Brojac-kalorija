@@ -1,0 +1,59 @@
+
+    <button type="button" id="btO" class="btObavestenja" (click)=" this.izbor = !this.izbor"
+        title="Pogledaj obaveštenja.">obaveštenja🔔</button>
+
+
+    <ul class="uVrsta" size="2" [hidden]="!izbor">
+        <li value="0" (click)="clickIzbor(0)" title="Pogledaj dnevne izveštaje.">
+            dnevni izveštaji  <h6 style="left: 10px" > {{this.izvestaji.length}} </h6>
+        </li>
+
+        <li value="1" (click)="clickIzbor(1)" title="Pogledaj rezultate svojih poslatih zahteva.">
+            rezultati zahteva  <h6 style="left: 5px" > {{this.rezultati.length}}  </h6>
+        </li>
+    </ul>
+
+
+    <div class="dRez" [hidden]="!prikaz || iz">
+        <h3  > Rezultati poslatih zahteva</h3>
+        <button class="btX" (click)="clickX()"  >✖</button>
+    </div>
+
+    <button [hidden]="!prikaz || iz || rezultati.length<4"  class="btStrelica" id="rezGore"  (click)="pomeriRezultateGore()" >▲</button>
+    <button [hidden]="!prikaz || iz || rezultati.length<4" class="btStrelica" id="rezDole" (click)="pomeriRezultateDole()" >▼</button>
+
+    <ul class="uRezultati" [hidden]="!prikaz || iz" (wheel)="pomeriRezultate()" >
+        <li *ngIf="rezultati==[]">
+            Nema rezultata zahteva, isključili ste ih.
+            Označite polje pri slanju sledećeg zahteva kako biste ih ponovo dobijali.
+        </li>
+        <li *ngFor="let r of rezultati" id={{r.id}} >
+            <textarea class="tRez" disabled cols="1" rows="6"> {{prikazRezultata(r.poruka)}} </textarea>
+        </li>
+    </ul>
+
+    <div class="dIz" [hidden]="!prikaz || !iz" >
+        <h3  >Dnevni izveštaji</h3>
+        <button class="btX" (click)="clickX()" >✖</button>
+    </div>
+
+
+    <button  [hidden]="!prikaz || !iz || izvestaji.length<4" class="btStrelica" id="izGore"  (click)="pomeriIzvestajeGore()" >▲</button>
+    <button  [hidden]="!prikaz || !iz || izvestaji.length<4 " class="btStrelica" id="izDole" (click)="pomeriIzvestajeDole()" >▼</button>
+
+    <ul class="uIzvestaji" [hidden]="!prikaz || !iz"  (wheel)="pomeriIzvestaje()">
+        <li *ngIf="izvestaji==[]">
+            Nema dnevnih izveštaja, isključili ste ih.
+            Označite polje pored dnevnog pregleda kako biste ih ponovo dobijali.
+        </li>
+        <li *ngFor="let i of izvestaji; index as j" id={{j}} >
+            <textarea class="tIz" disabled cols="1" rows="5"> {{i}} </textarea>
+        </li>
+    </ul>
+
+
+    <p class="odgovor" [hidden]="greska==''">
+        {{greska}}
+        <button class="btX" (click)="greska=''">✖</button>
+    </p>
+

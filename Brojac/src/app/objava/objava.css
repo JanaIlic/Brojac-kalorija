@@ -1,0 +1,571 @@
+@import "../app.component.css";
+
+
+form.objavaForm>label {
+    width: 300px;
+    left: 510px;
+    top: 35px;
+}
+
+form.objavaForm>div.dUpis{
+    top: 90px;
+    left: 505px;
+    width: 500px;
+    height: 210px;
+    border-style: solid;
+    border-radius: 8px;
+    border-width: 1px;
+    background-color: #fffb9f;
+}
+
+div.dUpis>label{
+    position: relative;
+    top: 0px;
+    left: -10px;
+}
+
+div.dUpis>button.btX{
+    position: relative;
+    top: -9px;
+    left: 463px;
+}
+
+
+div.dUpis>textarea#txtUnos{
+    position: relative;
+    width: 470px;
+    left: 5px;
+    top: 0px;
+    max-height: 120px;
+    resize: vertical;
+}
+
+div.dUpis>input[type="file"] {
+    position: relative;
+    left: 5px;
+    top: 10px;
+    height: 60px;
+}
+
+div.dUpis>button#btSacuvaj{
+    position: relative;
+    top: 10px;
+    left: 155px;
+}
+
+
+form.objavaForm>button.btObjavi {
+    left: 780px;
+    top: 30px;
+    z-index: 2;
+}
+
+form.objavaForm>button.btObjaviJelo {
+    left: 810px;
+    top: 30px;
+    width: fit-content;
+}
+
+form.objavaForm>button.btObjaviObrok {
+    left: 840px;
+    top: 30px;
+    width: fit-content;
+}
+
+form.objavaForm>button.btObjaviTrening {
+    left: 870px;
+    top: 30px;
+    width: fit-content;
+}
+
+
+label.lbSve {
+    left: 510px;
+    top: 660px;
+    height: 28px;
+    width: 165px;
+    text-align: left;
+    font-size: smaller;
+}
+
+input[type="checkbox"] {
+    left: 680px;
+    top: 663px;
+    height: 15px;
+    width: 15px;
+}
+
+
+h2.hObjave{
+    top: 90px;
+    left: 475px;
+    width: 560px;
+    align-content: center;
+}
+
+ul {
+    top: 140px;
+    list-style-type: none;
+    overflow: hidden;
+    overflow-y: scroll;
+    max-height: 500px;
+    border-top-right-radius: 7px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: #fffb9f;
+    border-style: solid;
+    border-width: 1px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+ul::-webkit-scrollbar {
+    display: none;
+}
+
+
+ul.ulObjave {
+    left: 475px;
+    width: 560px;
+    border-style: none;
+}
+
+
+ul>li {
+    padding: 10px;
+    position: relative;
+    height: fit-content;
+    background-color: whitesmoke;
+    border-color: #fffb9f;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-width: 1px;
+    border-style: solid;
+    overflow: hidden;
+}
+
+ul>li::-webkit-scrollbar{
+    visibility: hidden;
+}
+
+ul.ulObjave>li {
+    pad: 0;
+    min-width: 520px;
+    width: fit-content;
+    height: fit-content;
+    min-height: 150px;
+    white-space: pre-wrap;
+    padding-bottom: 60px;
+}
+
+button#sDole{
+    left: 980px;
+    top: 640px;
+}
+
+button#sGore{
+    left: 970px;
+    top: 100px;
+}
+
+
+ul.ulObjave>li.liIf{
+    height: 50px;
+}
+
+ul.ulObjave>li>pre {
+    top: 30px;
+    padding: 0px;
+    left: 10px;
+    min-width: 520px;
+    width: fit-content;
+    height: fit-content;
+    font-size: smaller;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+} 
+
+ul>li:empty {
+    display: none;
+}
+
+ul>li::first-line>h6 {
+    padding-left: 10px;
+    font-weight: bolder;
+}
+
+ul>li::first-line>h6::first-letter {
+    font-weight: bolder;
+    font-size: xx-large;
+}
+
+
+
+li>img {
+    position: relative;
+    left: 170px;
+    height: 70px;
+    width: auto;
+}
+
+
+option,
+optgroup {
+    position: relative;
+}
+
+
+
+div.dUcitana {
+    left: 510px;
+    width: 460px;
+    top: 150px;
+    height: fit-content;
+    z-index: 1;
+}
+
+div.dUcitana>button.btX {
+    top: 2px;
+    left: 473px;
+    width: 25px;
+    z-index: 1;
+}
+
+div.dUcitana>ul.ulUcitana {
+    top: 0px;
+    left: 0px;
+    width: 500px;
+    padding: 0px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    height: fit-content;
+    min-height: 140px;
+    overflow: hidden;
+
+}
+
+div.dUcitana>ul.ulUcitana>li {
+   background-color: whitesmoke;
+   left: 10px;
+   width: 480px;
+   border-radius: 0px;
+}
+
+div.dUcitana>ul.ulUcitana>li.liPre {
+    height: fit-content;
+    min-height: 150px;
+    border-bottom-style: solid;
+    border-bottom-width: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-color: whitesmoke;
+    white-space: pre-wrap;
+ }
+
+div.dUcitana> ul.ulUcitana>li.liDatum{
+    font-size: small;
+    text-align: right;
+    height: 20px;
+    background-color: #fffb9f;
+    padding: 0px;
+    padding-right: 25px;
+}
+
+div.dUcitana> ul.ulUcitana>li.liIme{
+   font-weight: bolder;
+   height: 30px;
+   background-color: #fffb9f;
+   left: 20px;
+   padding: 0px;
+}
+
+div.dUcitana> ul.ulUcitana>li.liDugmad{
+    padding-block: 0;
+    background-color: #fffb9f;
+    top: 5px;
+    height: 30px;
+ }
+
+ div.dUcitana>ul.ulUcitana>li.liImg {
+    top: 5px;
+    height: fit-content;
+    background-color: transparent;
+ }
+
+div.dUcitana>ul.ulUcitana>li.liImg>img {
+    top: 0px;
+    align-self: center;
+    left: 120px;
+    max-width: 250px;
+    height: auto;
+}
+
+div.dUcitana> ul.ulUcitana> li.liDugmad>button#btKomentari {
+    top: 0px;
+    left: 120px;
+    width: 60px;
+}
+
+div.dUcitana>ul.ulUcitana>li.liDugmad>button#btObojeno {
+    top: 0.1px;
+    left: 0px;
+    height: 29px;
+    max-width: 97px;
+    min-width: 3px;
+    padding-inline: 0%;
+    color: yellow;
+    z-index: 1;
+    border-color: transparent;
+    background-color: transparent;
+    overflow: hidden;
+    letter-spacing: 4.8px;
+    overflow: hidden;
+    text-indent: 0.2px;
+}
+
+
+div.dUcitana>ul.ulUcitana>li.liDugmad>button#btCrno {
+    top: -3px;
+    left: -4px;
+    width: 98px;
+    height: 33px;
+    padding-inline: 0px;
+    z-index: 0;
+    color: purple;
+    letter-spacing: 0.6px;
+    font-size: 21px;
+    border-color: transparent;
+    background-color: transparent;
+    -webkit-text-fill-color:  #ebdae0;
+    -webkit-text-stroke-width: 1px;
+}
+
+
+div.dUcitana>ul.ulUcitana>li.liDugmad>button#btPromeni {
+    top: 0px;
+    left: 390px;
+    width: 40px;
+}
+
+div.dUcitana>ul.ulUcitana>li.liDugmad>button#btUkloni {
+    top: 0px;
+    left: 440px;
+    width: 40px;
+}
+
+
+div.dUcitana>div.dKomentari{
+    position: relative;
+    padding: 0px;
+    left: -5px;
+    width: 510px;
+    top: 170px;
+    height: fit-content;
+    background-color: transparent;
+    border-width: 0px;
+    border-style: none;
+}
+
+div.dUcitana>div.dKomentari>ul.ulKomentari {
+    position: relative;
+    list-style-type: none;
+    left: 0px;
+    width: 490px;
+    top: -10px;
+    z-index: 1;
+    height: fit-content;
+    max-height: 280px;
+    background-color: #fffb9f;
+    overflow: hidden;
+    overflow-y: scroll;
+    border-width: 1px;
+    border-bottom-style: none;
+    border-bottom-right-radius: 0px;
+    padding: 10px;
+    padding-bottom: 40px;
+}
+
+div.dUcitana>div.dKomentari>button.btX {
+    position: relative;
+    top: 17px;
+    left: 463px;
+    width: 25px;
+    z-index: 2;
+}
+
+div.dUcitana>div.dKomentari>ul.ulKomentari>li {
+    position: relative;
+    left: 0px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    height: fit-content;
+    width: 460px;
+    background-color: whitesmoke;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-color: #fffb9f;
+}
+
+div.dKomentari>ul.ulKomentari>h6 {
+    position: relative;
+    top: 5px;
+    left: 10px;
+    align-self: right;
+    color: black;
+    font-weight: bolder;
+    height: fit-content;
+    padding: 0px;
+    z-index: 2;
+}
+
+
+div.dUcitana>div.dKomentari>ul.ulKomentari>li>p {
+    left: 350px;
+    text-align: right;
+    font-weight: lighter;
+    font-size: smaller;
+}
+
+
+
+div.dKomentari>form.komentarForm {
+    position:relative;
+    top: -30px;
+    bottom: 5px;
+    left: 0px;
+    width: 490px;
+    height: 60px;
+    border-radius: 0px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+form.komentarForm>input {
+    position: relative;
+    left: 10px;
+    top: 10px;
+    width: 370px;
+    z-index: 1;
+}
+
+div.dUcitana>div.dKomentari>form.komentarForm>button#btKomentarisi {
+    position: relative;
+    padding: 0;
+    width: 28px;
+    height: 28px;
+    left: 15px;
+    top: 10px;
+    z-index: 1;
+    font-size: medium;
+    font-weight: bolder;
+    color: black;
+    -webkit-text-fill-color: black;
+    -webkit-text-stroke-width: 2px;
+}
+
+
+div.dUcitana>div.dKomentari>form.komentarForm>button#btIzmeni {
+    position: relative;
+    padding: 0;
+    width: 28px;
+    height: 28px;
+    left: 20px;
+    top: 10px;
+    z-index: 1;
+}
+
+div.dUcitana>div.dKomentari>form.komentarForm>button#btObrisi {
+    position: relative;
+    padding: 0;
+    width: 28px;
+    height: 28px;
+    left: 25px;
+    top: 10px;
+    z-index: 1;
+}
+
+
+form.ocenaForm>select {
+    width: 50px;
+    left: 40px;
+    top: 450px;
+    overflow: hidden;
+}
+
+form.ocenaForm>select>option {
+    text-align: center;
+    font-weight: bolder;
+    font-size: large;
+}
+
+form.ocenaForm>select>option#o6 {
+    text-align: center;
+    font-weight: bolder;
+    font-size: smaller;
+}
+
+
+
+
+ul.uOcene {
+    position: absolute;
+    left: 40px;
+    top: 455px;
+    z-index: 1;
+    height: fit-content;
+    max-height: 500px;
+    width: 420px;
+    gap: 5px;
+    padding: 10px;
+}
+
+ul.uOcene>li {
+    width: 380px;
+    left: 5px;
+    border-radius: 5px;
+}
+
+ul.uOcene>li>p {
+    width: 150px;
+    z-index: 2;
+}
+
+ul.uOcene>button.btX {
+    top: 1px;
+    left: 391px;
+    z-index: 2;
+}
+
+
+ul.zaObjavu {
+    top: 150px;
+    left: 550px;
+    background-color: #fffb9f;
+    z-index: 1;
+    width: 250px;
+    height: fit-content;
+    max-height: 500px;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    border-top-right-radius: 7px;
+    border-bottom-left-radius: 20px;
+    overflow: hidden;
+    padding-bottom: 10px;
+}
+
+ul.zaObjavu>li {
+    background-color: whitesmoke;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 20px;
+    border-bottom-color: #fffb9f;
+    border-bottom-style: solid;
+    top: 10px;
+    left: -20px;
+    width: 210px;
+}
+
+ul.zaObjavu>button.btX {
+    left: 222px;
+    top: 1px;
+}
